@@ -32,9 +32,9 @@ jobs:
 
       - name: Update guestbook.yaml
         run: |
-          sed -i 's|APP_VERSION:.*|APP_VERSION: '${{ github.sha }}'|' values.yaml 
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
+          sed -i 's|APP_VERSION:.*|APP_VERSION: '${{ github.sha }}'|' guestbook-ui-deployment.yaml
+          git config --global user.name 'yumigm'
+          git config --global user.email 'michael.yumiguani@us.nationalgrid.com'
           git add values.yaml
           git commit -m "Update guestbook.yaml"
           git push
