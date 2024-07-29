@@ -30,10 +30,11 @@ jobs:
     #  - name: Push Docker image
     #    run: docker push ${{ env.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
-      - name: Update guestbook.yaml
+      - name: Update guestbook-svc.yaml
         run: |
+          sed -i 's| guestbook-ui | guestbook-ui-svc-new |' guestbook-svc.yaml
           git config --global user.name 'yumigm'
           git config --global user.email 'michael.yumiguani@us.nationalgrid.com'
-          git add guestbook-ui-deployment.yaml
+          git add guestbook-svc.yaml
           git commit -m "Update guestbook.yaml"
           git push
