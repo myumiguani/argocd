@@ -32,6 +32,7 @@ jobs:
 
       - name: Update guestbook-svc.yaml
         run: |
+          cd argocd-files
           sed -i 's| guestbook-ui | guestbook-ui-svc-new |' guestbook-svc.yaml
           git config --global user.name 'yumigm'
           git config --global user.email 'michael.yumiguani@us.nationalgrid.com'
