@@ -34,6 +34,6 @@ jobs:
         run: |
           git config --global user.name 'yumigm'
           git config --global user.email 'michael.yumiguani@us.nationalgrid.com'
-          git add values.yaml
+          git add guestbook-ui-deployment.yaml
           git commit -m "Update guestbook.yaml"
           git push
