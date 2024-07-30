@@ -33,7 +33,7 @@ jobs:
       - name: Update guestbook-svc.yaml
         run: |
           cd argocd-files
-          sed -i 's/guestbook-ui/guestbook-ui-svc-new/' guestbook-svc.yaml
+          sed -i 's/guestbook-ui/guestbook-ui-svc-new-test2/' guestbook-svc.yaml
           cat guestbook-svc.yaml
           git status
           git config --global user.name 'yumigm'
