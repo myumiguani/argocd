@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: guestbook-ui-svc-new
+  name: guestbook-ui-svc-new-test2-svc-new
 spec:
   ports:
   - port: 80
     targetPort: 80
   selector:
-    app: guestbook-ui-svc-new
+    app: guestbook-ui-svc-new-test2-svc-new
