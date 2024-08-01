@@ -27,7 +27,7 @@ jobs:
         env: 
           ANYPOINT_USERNAME: ${{ secrets.ANYPOINT_USERNAME }}
           ANYPOINT_PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
-          ANYPOINT_ORG_ID: ${{ secrets.ANYPOINT_ORGID }}
+          ANYPOINT_ORG_ID: ${{ secrets.ANYPOINT_ORG_ID }}
         run: |
           cd apis
           pwd
