@@ -17,7 +17,7 @@
   "descriptorVersion": "1.0.0",
   "classifier": "raml",
   "main": "american-flights-api.raml",
-  "assetId": "github-argocd-test",
+  "assetId": "american-flights-api",
   "groupId": "0ba36acb-df76-41e9-b052-96b1dfa1fe10",
-  "name": "GitHub-Argocd-Test"
+  "name": "american-flights-api"
 }
