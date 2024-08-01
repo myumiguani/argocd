@@ -31,6 +31,6 @@ jobs:
         run: |
           cd apis
           pwd
-          api-catalog publish-asset --organization=0ba36acb-df76-41e9-b052-96b1dfa1fe10 --username=mikeyumi --password= @@@@Warcarft1234
+          api-catalog publish-asset --organization=0ba36acb-df76-41e9-b052-96b1dfa1fe10 --username=mikeyumi --password=@@@@Warcarft1234
 
         
