@@ -1,10 +1,10 @@
 #%Catalog Descriptor 1.0
 projects:
-  - main: apis\GitHub-Argocd-Test\american-flights-api.raml
+  - main: GitHub-Argocd-Test\american-flights-api.raml
     assetId: american-flights-api
     version: 2.0.0
     apiVersion: v2
-  - main: apis\GitHub-Argocd-Test\github-argocd-test.raml
+  - main: GitHub-Argocd-Test\github-argocd-test.raml
     assetId: github-argocd-test
     version: 1.0.0
     apiVersion: v1
