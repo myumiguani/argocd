@@ -30,9 +30,6 @@ jobs:
           ANYPOINT_ORG_ID: ${{ secrets.ANYPOINT_ORG_ID }}
         run: |
           cd apis
-          pwd
-          ls -a
-          api-catalog --username="$ANYPOINT_USERNAME" --password="$ANYPOINT_PASSWORD"
           api-catalog publish-asset --organization="$ANYPOINT_ORG_ID" --username="$ANYPOINT_USERNAME" --password="$ANYPOINT_PASSWORD"
 
         
