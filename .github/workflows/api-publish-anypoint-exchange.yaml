@@ -32,8 +32,7 @@ jobs:
           cd apis
           pwd
           ls -a
-          api-catalog conf username "$ANYPOINT_USERNAME"
-          api-catalog conf password "$ANYPOINT_PASSWORD"
+          api-catalog --organization="$ANYPOINT_ORG_ID" --username="$ANYPOINT_USERNAME" --password="$ANYPOINT_PASSWORD"
           api-catalog publish-asset --organization="$ANYPOINT_ORG_ID" --username="$ANYPOINT_USERNAME" --password="$ANYPOINT_PASSWORD"
 
         
