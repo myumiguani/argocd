@@ -30,6 +30,6 @@ jobs:
           ANYPOINT_ORG_ID: ${{ secrets.ANYPOINT_ORG_ID }}
         run: |
           cd apis
-          api-catalog publish-asset --organization="$ANYPOINT_ORG_ID" --username="$ANYPOINT_USERNAME" --password="$ANYPOINT_PASSWORD" --dry-run
+          api-catalog publish-asset --organization=0ba36acb-df76-41e9-b052-96b1dfa1fe10 --username=mikeyumi --password=@@@@Warcarft1234 --json
 
         
