@@ -32,7 +32,7 @@ jobs:
           cd apis
           pwd
           api-catalog conf username "$ANYPOINT_USERNAME"
-          api-catalog conf password mypwd "$ANYPOINT_PASSWORD"
+          api-catalog conf password "$ANYPOINT_PASSWORD"
           api-catalog publish-asset --organization="$ANYPOINT_ORG_ID" --username="$ANYPOINT_USERNAME" --password="$ANYPOINT_PASSWORD"
 
         
