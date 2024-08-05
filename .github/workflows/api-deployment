@@ -1,0 +1,44 @@
+name: api-deployment-mule-runtime
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  jobs:
+    build:
+      run-on: ubuntu-latest
+      steps:
+
+      - uses: actions/checkout@v2
+
+      - uses: actions/cache@v1
+        with: 
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven${{ hasfiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+        - name: add repo credentials
+          uses: s4u/maven-settings-action@v2.4.0
+          with: 
+            servers: |
+            [{
+              "id": "mule-enterprise",
+              "username": "mikeyumi"
+              "password": "@@@@Warcarft1234"
+              }]
+
+          - name: print effective settings (optional)
+            run: mvn help:effective-settings
+
+          - name: build with maven
+            run: mvn -B package --file pom.xml
+
+          - name: stamp artifact file name with commit hash
+            run: |
+              artifactName1=$(ls target/*.jar | head -l)
+              commitHash=$git rev-parse --short "$GITHUB_SHA")
+              artifactName2=$(ls target/*.jar | head -l | sed/.jar/-$commitHash.jar/g")
+              mv $artifactName1 $artifactName2
