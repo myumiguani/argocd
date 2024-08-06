@@ -38,7 +38,7 @@ jobs:
             [{
               "id": "mule-enterprise",
               "username": "mikeyumi",
-              "password": "@@@@Warcarft1234
+              "password": "@@@@Warcarft1234"
             }]
 
       - name: print logs
