@@ -45,7 +45,7 @@ jobs:
         run: mvn help:effective-settings
 
       - name: build with maven
-        run: mvn -B package --file pom.xml
+        run: mvn -B package --file apis\american-flights\pom.xml
 
       - name: stamp artifact
         run: |
