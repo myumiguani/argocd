@@ -1,51 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<groupId>0ba36acb-df76-41e9-b052-96b1dfa1fe10</groupId>
+	<artifactId>american-flights-api</artifactId>
+	<version>4.2.0-rc.1</version>
 	<build>
 		<plugins>
-      <plugin>
-        <groupId>org.mule.tools.maven</groupId>
-        <artifactId>mule-maven-plugin</artifactId>
-        <version>3.7.1</version>
-        <extensions>true</extensions>
-        <configuration>
-          <runtimeFabricDeployment>
-            <uri>https://anypoint.mulesoft.com</uri>
-            <muleVersion>4.3.0</muleVersion>
-            <username>mikeyumi</username>
-            <password>@@@@Warcarft1234</password>
-            <applicationName>american-flights-api</applicationName>
-            <target>rtf</target>
-            <environment>Sandbox</environment>
-            <provider>MC</provider>
-            <replicas>1</replicas>
-            <properties>
-              <key>value</key>
-            </properties>
-            <deploymentSettings>
-              <enforceDeployingReplicasAcrossNodes>false</enforceDeployingReplicasAcrossNodes>
-              <updateStrategy>recreate</updateStrategy>
-              <clustered>false</clustered>
-              <forwardSslSession>false</forwardSslSession>
-              <lastMileSecurity>false</lastMileSecurity>
-              <resources>
-                <cpu>
-                  <reserved>20m</reserved>
-                  <limit>1500m</limit>
-                </cpu>
-                <memory>
-                  <reserved>700Mi</reserved>
-                </memory>
-              </resources>
-              <http>
-                <inbound>
-                  <publicUrl>url</publicUrl>
-                </inbound>
-              </http>
-            </deploymentSettings>
-          </runtimeFabricDeployment>
-        </configuration>
-      </plugin>
+		    <plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>3.7.1</version>
+				<extensions>true</extensions>
+				<configuration>
+				<runtimeFabricDeployment>
+				<uri>https://anypoint.mulesoft.com</uri>
+				<muleVersion>4.3.0</muleVersion>
+				<username>mikeyumi</username>
+				<password>@@@@Warcarft1234</password>
+				<applicationName>american-flights-api</applicationName>
+				<target>rtf</target>
+				<environment>Sandbox</environment>
+				<provider>MC</provider>
+				<replicas>1</replicas>
+				<properties>
+				<key>value</key>
+				</properties>
+				<deploymentSettings>
+				<enforceDeployingReplicasAcrossNodes>false</enforceDeployingReplicasAcrossNodes>
+				<updateStrategy>recreate</updateStrategy>
+				<clustered>false</clustered>
+				<forwardSslSession>false</forwardSslSession>
+				<lastMileSecurity>false</lastMileSecurity>
+				<resources>
+				<cpu>
+				<reserved>20m</reserved>
+				<limit>1500m</limit>
+				</cpu>
+				<memory>
+				<reserved>700Mi</reserved>
+				</memory>
+				</resources>
+				<http>
+				<inbound>
+				<publicUrl>url</publicUrl>
+				</inbound>
+				</http>
+				</deploymentSettings>
+				</runtimeFabricDeployment>
+				</configuration>
+		    </plugin>
+			 
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
