@@ -50,19 +50,19 @@
 				</configuration>
 		    </plugin>
 		</plugins>
-		<pluginRepositories>
-			<pluginRepository>
-				<id>mule-enterprise</id>
-				<name>Mule</name>
-				<url>url</url>
-				<layout>default</layout>
-				<releases>
-					<enabled>true</enabled>
-				</releases>
-				<snapshots>
-					<enabled>true</enabled>
-				</snapshots>
-			</pluginRepository>
-		</pluginRepositories>
 	</build>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>mule-enterprise</id>
+			<name>Mule</name>
+			<url>url</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 </project>
