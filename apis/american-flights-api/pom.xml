@@ -49,6 +49,12 @@
 				</runtimeFabricDeployment>
 				</configuration>
 		    </plugin>
+		    <plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>3.7.1</version>
+				<extensions>true</extensions>
+		    </plugin>
 		</plugins>
 	</build>
 	<pluginRepositories>
