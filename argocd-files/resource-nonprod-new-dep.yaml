@@ -2,14 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    deployment.kubernetes.io/revision: "6"
+    deployment.kubernetes.io/revision: "5"
     kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"deployment.kubernetes.io/revision":"5","meta.helm.sh/release-name":"runtime-fabric","meta.helm.sh/release-namespace":"rtf","rtf.mulesoft.com/tags":"static_assets"},"creationTimestamp":"2023-12-18T17:08:13Z","generation":5,"labels":{"app.kubernetes.io/instance":"runtime-fabric","app.kubernetes.io/managed-by":"Helm","rtf.mulesoft.com/agentNamespace":"rtf","rtf.mulesoft.com/component":"agent","rtf.mulesoft.com/report-status":"true"},"name":"resource-cache","namespace":"rtf","resourceVersion":"166025797","uid":"94888f65-2049-45d0-9fc8-3db30943681b"},"spec":{"progressDeadlineSeconds":600,"replicas":1,"revisionHistoryLimit":1,"selector":{"matchLabels":{"app":"resource-cache"}},"strategy":{"rollingUpdate":{"maxSurge":1,"maxUnavailable":0},"type":"RollingUpdate"},"template":{"metadata":{"annotations":{"checksum/config":"5c9997dd658f0d51a56f62a7a73e944269658d888f94b283751b9f09b0d76549"},"creationTimestamp":null,"labels":{"app":"resource-cache"}},"spec":{"automountServiceAccountToken":false,"containers":[{"image":"rtf-runtime-registry.kprod.msap.io/mulesoft/base-image-nginx-1.21.6:1.2.152","imagePullPolicy":"IfNotPresent","name":"nginx","ports":[{"containerPort":8010,"protocol":"TCP"}],"resources":{"limits":{"cpu":"500m","memory":"250Mi"},"requests":{"cpu":"100m","memory":"50Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"readOnlyRootFilesystem":true},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/etc/nginx","name":"nginx-config"},{"mountPath":"/tmp/nginx","name":"nginx-tmp"}]},{"args":["/app"],"env":[{"name":"HTTP_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_PROXY","name":"custom-properties","optional":true}}},{"name":"HTTPS_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_PROXY","name":"custom-properties","optional":true}}},{"name":"NO_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_NO_PROXY","name":"custom-properties","optional":true}}},{"name":"OVERRIDE_HOST","valueFrom":{"secretKeyRef":{"key":"CONFIGRESOLVER_HOST","name":"generated-properties","optional":true}}}],"image":"rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-resource-fetcher:1.0.183","imagePullPolicy":"IfNotPresent","name":"fetcher","ports":[{"containerPort":8011,"protocol":"TCP"}],"resources":{"limits":{"cpu":"50m","memory":"200Mi"},"requests":{"cpu":"50m","memory":"100Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"readOnlyRootFilesystem":true,"runAsGroup":2000,"runAsUser":2020},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/opt/app/ssl","name":"agent-keystore-volume"}]}],"dnsPolicy":"ClusterFirst","nodeSelector":{"kubernetes.io/arch":"amd64","kubernetes.io/os":"linux"},"priorityClassName":"rtf-components-high-priority","restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{"runAsNonRoot":true,"seccompProfile":{"type":"RuntimeDefault"}},"serviceAccount":"resource-cache","serviceAccountName":"resource-cache","terminationGracePeriodSeconds":30,"volumes":[{"configMap":{"defaultMode":420,"name":"resource-cache-config"},"name":"nginx-config"},{"emptyDir":{},"name":"nginx-tmp"},{"name":"agent-keystore-volume","secret":{"defaultMode":420,"secretName":"agent-keystore"}}]}}},"status":{"availableReplicas":1,"conditions":[{"lastTransitionTime":"2024-06-09T10:32:52Z","lastUpdateTime":"2024-06-09T10:32:52Z","message":"Deployment has minimum availability.","reason":"MinimumReplicasAvailable","status":"True","type":"Available"},{"lastTransitionTime":"2023-12-18T17:08:13Z","lastUpdateTime":"2024-06-25T21:16:01Z","message":"ReplicaSet \"resource-cache-74b7cfcbcb\" has successfully progressed.","reason":"NewReplicaSetAvailable","status":"True","type":"Progressing"}],"observedGeneration":5,"readyReplicas":1,"replicas":1,"updatedReplicas":1}}
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"deployment.kubernetes.io/revision":"4","meta.helm.sh/release-name":"runtime-fabric","meta.helm.sh/release-namespace":"rtf","rtf.mulesoft.com/tags":"static_assets"},"creationTimestamp":"2024-01-31T20:45:12Z","generation":4,"labels":{"app.kubernetes.io/instance":"runtime-fabric","app.kubernetes.io/managed-by":"Helm","rtf.mulesoft.com/agentNamespace":"rtf","rtf.mulesoft.com/component":"agent","rtf.mulesoft.com/report-status":"true"},"name":"resource-cache","namespace":"rtf","resourceVersion":"111464424","uid":"be5f7e7b-9366-4917-9729-743b6d2719c0"},"spec":{"progressDeadlineSeconds":600,"replicas":1,"revisionHistoryLimit":1,"selector":{"matchLabels":{"app":"resource-cache"}},"strategy":{"rollingUpdate":{"maxSurge":1,"maxUnavailable":0},"type":"RollingUpdate"},"template":{"metadata":{"annotations":{"checksum/config":"5c9997dd658f0d51a56f62a7a73e944269658d888f94b283751b9f09b0d76549"},"creationTimestamp":null,"labels":{"app":"resource-cache"}},"spec":{"automountServiceAccountToken":false,"containers":[{"image":"rtf-runtime-registry.kprod.msap.io/mulesoft/base-image-nginx-1.21.6:1.2.152","imagePullPolicy":"IfNotPresent","name":"nginx","ports":[{"containerPort":8010,"protocol":"TCP"}],"resources":{"limits":{"cpu":"500m","memory":"250Mi"},"requests":{"cpu":"100m","memory":"50Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"readOnlyRootFilesystem":true},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/etc/nginx","name":"nginx-config"},{"mountPath":"/tmp/nginx","name":"nginx-tmp"}]},{"args":["/app"],"env":[{"name":"HTTP_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_PROXY","name":"custom-properties","optional":true}}},{"name":"HTTPS_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_PROXY","name":"custom-properties","optional":true}}},{"name":"NO_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_NO_PROXY","name":"custom-properties","optional":true}}},{"name":"OVERRIDE_HOST","valueFrom":{"secretKeyRef":{"key":"CONFIGRESOLVER_HOST","name":"generated-properties","optional":true}}}],"image":"rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-resource-fetcher:1.0.183","imagePullPolicy":"IfNotPresent","name":"fetcher","ports":[{"containerPort":8011,"protocol":"TCP"}],"resources":{"limits":{"cpu":"100m","memory":"200Mi"},"requests":{"cpu":"50m","memory":"50Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"readOnlyRootFilesystem":true,"runAsGroup":2000,"runAsUser":2020},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/opt/app/ssl","name":"agent-keystore-volume"}]}],"dnsPolicy":"ClusterFirst","nodeSelector":{"kubernetes.io/arch":"amd64","kubernetes.io/os":"linux"},"priorityClassName":"rtf-components-high-priority","restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{"runAsNonRoot":true,"seccompProfile":{"type":"RuntimeDefault"}},"serviceAccount":"resource-cache","serviceAccountName":"resource-cache","terminationGracePeriodSeconds":30,"volumes":[{"configMap":{"defaultMode":420,"name":"resource-cache-config"},"name":"nginx-config"},{"emptyDir":{},"name":"nginx-tmp"},{"name":"agent-keystore-volume","secret":{"defaultMode":420,"secretName":"agent-keystore"}}]}}},"status":{"conditions":[{"lastTransitionTime":"2024-01-31T20:55:46Z","lastUpdateTime":"2024-07-08T18:15:30Z","message":"ReplicaSet \"resource-cache-966d49884\" has successfully progressed.","reason":"NewReplicaSetAvailable","status":"True","type":"Progressing"},{"lastTransitionTime":"2024-08-09T20:50:09Z","lastUpdateTime":"2024-08-09T20:50:09Z","message":"Deployment does not have minimum availability.","reason":"MinimumReplicasUnavailable","status":"False","type":"Available"}],"observedGeneration":4,"replicas":1,"unavailableReplicas":1,"updatedReplicas":1}}
     meta.helm.sh/release-name: runtime-fabric
     meta.helm.sh/release-namespace: rtf
     rtf.mulesoft.com/tags: static_assets
-  creationTimestamp: "2023-12-18T17:08:13Z"
-  generation: 6
+  creationTimestamp: "2024-01-31T20:45:12Z"
+  generation: 5
   labels:
     app.kubernetes.io/instance: runtime-fabric
     app.kubernetes.io/managed-by: Helm
@@ -18,8 +18,8 @@ metadata:
     rtf.mulesoft.com/report-status: "true"
   name: resource-cache
   namespace: rtf
-  resourceVersion: "197910187"
-  uid: 94888f65-2049-45d0-9fc8-3db30943681b
+  resourceVersion: "111465587"
+  uid: be5f7e7b-9366-4917-9729-743b6d2719c0
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -103,11 +103,11 @@ spec:
           protocol: TCP
         resources:
           limits:
-            cpu: 50m
+            cpu: 100m
             memory: 200Mi
           requests:
             cpu: 50m
-            memory: 100Mi
+            memory: 50Mi
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
@@ -149,19 +149,19 @@ spec:
 status:
   availableReplicas: 1
   conditions:
-  - lastTransitionTime: "2023-12-18T17:08:13Z"
-    lastUpdateTime: "2024-06-25T21:34:14Z"
-    message: ReplicaSet "resource-cache-76d9c6d4cd" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  - lastTransitionTime: "2024-07-31T21:08:01Z"
-    lastUpdateTime: "2024-07-31T21:08:01Z"
+  - lastTransitionTime: "2024-08-09T20:51:42Z"
+    lastUpdateTime: "2024-08-09T20:51:42Z"
     message: Deployment has minimum availability.
     reason: MinimumReplicasAvailable
     status: "True"
     type: Available
-  observedGeneration: 6
+  - lastTransitionTime: "2024-01-31T20:55:46Z"
+    lastUpdateTime: "2024-08-09T20:51:42Z"
+    message: ReplicaSet "resource-cache-6c47765744" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 5
   readyReplicas: 1
   replicas: 1
   updatedReplicas: 1
