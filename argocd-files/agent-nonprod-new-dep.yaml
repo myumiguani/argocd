@@ -19,7 +19,7 @@ metadata:
     rtf.mulesoft.com/report-status: "true"
   name: agent
   namespace: rtf
-  resourceVersion: "204813616"
+  resourceVersion: "205372487"
   uid: f1b0e184-efff-4dda-a9de-fb4a443edca2
 spec:
   progressDeadlineSeconds: 600
@@ -260,18 +260,18 @@ spec:
 status:
   availableReplicas: 1
   conditions:
-  - lastTransitionTime: "2024-08-08T18:46:52Z"
-    lastUpdateTime: "2024-08-08T18:46:52Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
   - lastTransitionTime: "2024-08-08T18:46:12Z"
     lastUpdateTime: "2024-08-08T18:46:52Z"
     message: ReplicaSet "agent-7789b94996" has successfully progressed.
     reason: NewReplicaSetAvailable
     status: "True"
     type: Progressing
+  - lastTransitionTime: "2024-08-09T10:18:12Z"
+    lastUpdateTime: "2024-08-09T10:18:12Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
   observedGeneration: 1
   readyReplicas: 1
   replicas: 1
