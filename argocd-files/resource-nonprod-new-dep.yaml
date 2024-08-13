@@ -8,7 +8,6 @@ metadata:
     meta.helm.sh/release-name: runtime-fabric
     meta.helm.sh/release-namespace: rtf
     rtf.mulesoft.com/tags: static_assets
-  creationTimestamp: "2023-12-18T17:08:13Z"
   generation: 6
   labels:
     app.kubernetes.io/instance: runtime-fabric
@@ -18,8 +17,6 @@ metadata:
     rtf.mulesoft.com/report-status: "true"
   name: resource-cache
   namespace: rtf
-  resourceVersion: "197910187"
-  uid: 94888f65-2049-45d0-9fc8-3db30943681b
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -36,7 +33,6 @@ spec:
     metadata:
       annotations:
         checksum/config: 5c9997dd658f0d51a56f62a7a73e944269658d888f94b283751b9f09b0d76549
-      creationTimestamp: null
       labels:
         app: resource-cache
     spec:
