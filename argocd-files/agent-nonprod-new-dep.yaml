@@ -2,350 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    deployment.kubernetes.io/revision: '1'
-    kubectl.kubernetes.io/last-applied-configuration: >
-      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"deployment.kubernetes.io/revision":"2","meta.helm.sh/release-name":"runtime-fabric","meta.helm.sh/release-namespace":"rtf","rtf.mulesoft.com/tags":"application_management"},"creationTimestamp":"2024-08-12T18:24:26Z","generation":3,"labels":{"app":"agent","app.kubernetes.io/instance":"guestbook","app.kubernetes.io/managed-by":"Helm","rtf.mulesoft.com/agentNamespace":"rtf","rtf.mulesoft.com/component":"agent","rtf.mulesoft.com/report-status":"true"},"name":"agent","namespace":"rtf","resourceVersion":"208266300","uid":"b4dd5dd8-36ab-4d95-b508-54a3eda1507c"},"spec":{"progressDeadlineSeconds":600,"replicas":1,"revisionHistoryLimit":1,"selector":{"matchLabels":{"app":"agent"}},"strategy":{"type":"Recreate"},"template":{"metadata":{"annotations":{"checksum/config":"40a61fafd718b843e052f9482b428675924b3b5322d0b4a1f57810fae3541136","checksum/custom-properties-secret":"ce92e673eac87c0abf5b5fed4ca24c4779d35c4e5fbccc5b62570842809b0d03","checksum/generated-properties-secret":"01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b","kubectl.kubernetes.io/restartedAt":"2024-08-12T18:58:29Z"},"creationTimestamp":null,"labels":{"app":"agent","prometheus.io/path":"prometheus","prometheus.io/port":"8080","prometheus.io/scrape":"true"},"name":"agent"},"spec":{"automountServiceAccountToken":true,"containers":[{"env":[{"name":"QUEUE_CLIENT_SSL_TRUSTSTOREPASSWORD","valueFrom":{"secretKeyRef":{"key":"truststore-password","name":"agent-keystore"}}},{"name":"PROXY_HTTP","valueFrom":{"secretKeyRef":{"key":"HTTP_PROXY","name":"custom-properties","optional":true}}},{"name":"PROXY_NOPROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_NO_PROXY","name":"custom-properties","optional":true}}}],"envFrom":[{"configMapRef":{"name":"app-config"}},{"secretRef":{"name":"generated-properties"}},{"configMapRef":{"name":"agent-config-override","optional":true}},{"configMapRef":{"name":"restore-data","optional":true}}],"image":"rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-agent:2.6.52","imagePullPolicy":"IfNotPresent","livenessProbe":{"failureThreshold":3,"httpGet":{"path":"api/v1/status/liveness","port":8080,"scheme":"HTTP"},"initialDelaySeconds":1800,"periodSeconds":60,"successThreshold":1,"timeoutSeconds":5},"name":"app","ports":[{"containerPort":8080,"protocol":"TCP"}],"readinessProbe":{"failureThreshold":3,"httpGet":{"path":"api/v1/status/ready","port":8080,"scheme":"HTTP"},"initialDelaySeconds":20,"periodSeconds":10,"successThreshold":1,"timeoutSeconds":1},"resources":{"limits":{"cpu":"1","memory":"1000Mi"},"requests":{"cpu":"100m","memory":"400Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"privileged":false,"readOnlyRootFilesystem":true},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/opt/app/ssl","name":"agent-keystore-volume"},{"mountPath":"/tmp","name":"agent-tmp"}]},{"args":["serve","--namespace","rtf"],"command":["/rtfd"],"env":[{"name":"HELM_REPOSITORY_CONFIG","value":"/opt/app/helm-config/repositories.yaml"},{"name":"HELM_REPOSITORY_CACHE","value":"/tmp/helm-cache/"},{"name":"HTTPS_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_PROXY","name":"custom-properties","optional":true}}},{"name":"NO_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_NO_PROXY","name":"custom-properties","optional":true}}},{"name":"ENABLE_CONSOLE_LOG","valueFrom":{"secretKeyRef":{"key":"ENABLE_CONSOLE_LOG","name":"custom-properties","optional":true}}}],"envFrom":[{"configMapRef":{"name":"app-config"}},{"secretRef":{"name":"generated-properties"}}],"image":"rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-daemon:2.0.48","imagePullPolicy":"IfNotPresent","name":"rtfd","resources":{"limits":{"cpu":"50m","memory":"500Mi"},"requests":{"cpu":"20m","memory":"100Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"privileged":false,"readOnlyRootFilesystem":true},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/opt/app/helm-config/repositories.yaml","name":"generated-properties-volume","subPath":"HELM_REPOSITORY_FILE"},{"mountPath":"/tmp","name":"rtfd-tmp"}]}],"dnsPolicy":"ClusterFirst","initContainers":[{"args":["activate","--namespace","rtf"],"command":["/rtfd"],"env":[{"name":"HTTPS_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_PROXY","name":"custom-properties","optional":true}}},{"name":"NO_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_NO_PROXY","name":"custom-properties","optional":true}}}],"envFrom":[{"configMapRef":{"name":"app-config"}}],"image":"rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-daemon:2.0.48","imagePullPolicy":"IfNotPresent","name":"init","resources":{"limits":{"cpu":"50m","memory":"500Mi"},"requests":{"cpu":"20m","memory":"100Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"privileged":false,"readOnlyRootFilesystem":true},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/tmp","name":"rtfd-tmp"}]}],"nodeSelector":{"kubernetes.io/arch":"amd64","kubernetes.io/os":"linux"},"priorityClassName":"rtf-components-high-priority","restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{"runAsGroup":2000,"runAsNonRoot":true,"runAsUser":2020,"seccompProfile":{"type":"RuntimeDefault"}},"serviceAccount":"rtf-agent","serviceAccountName":"rtf-agent","terminationGracePeriodSeconds":90,"volumes":[{"name":"agent-keystore-volume","secret":{"defaultMode":420,"optional":true,"secretName":"agent-keystore"}},{"name":"generated-properties-volume","secret":{"defaultMode":420,"optional":true,"secretName":"generated-properties"}},{"emptyDir":{},"name":"agent-tmp"},{"emptyDir":{},"name":"rtfd-tmp"}]}}},"status":{"availableReplicas":1,"conditions":[{"lastTransitionTime":"2024-08-12T18:59:01Z","lastUpdateTime":"2024-08-12T18:59:01Z","message":"Deployment
-      has minimum
-      availability.","reason":"MinimumReplicasAvailable","status":"True","type":"Available"},{"lastTransitionTime":"2024-08-12T18:24:26Z","lastUpdateTime":"2024-08-12T18:59:01Z","message":"ReplicaSet
-      \"agent-5bff94f7fb\" has successfully
-      progressed.","reason":"NewReplicaSetAvailable","status":"True","type":"Progressing"}],"observedGeneration":3,"readyReplicas":1,"replicas":1,"updatedReplicas":1}}
+    deployment.kubernetes.io/revision: "6"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"deployment.kubernetes.io/revision":"5","meta.helm.sh/release-name":"runtime-fabric","meta.helm.sh/release-namespace":"rtf","rtf.mulesoft.com/tags":"application_management"},"creationTimestamp":"2023-12-18T17:08:13Z","generation":5,"labels":{"app":"agent","app.kubernetes.io/instance":"runtime-fabric","app.kubernetes.io/managed-by":"Helm","rtf.mulesoft.com/agentNamespace":"rtf","rtf.mulesoft.com/component":"agent","rtf.mulesoft.com/report-status":"true"},"name":"agent","namespace":"rtf","resourceVersion":"166026958","uid":"541964f5-2d02-4561-8789-2ef9a0bdaac3"},"spec":{"progressDeadlineSeconds":600,"replicas":1,"revisionHistoryLimit":1,"selector":{"matchLabels":{"app":"agent"}},"strategy":{"type":"Recreate"},"template":{"metadata":{"annotations":{"checksum/config":"40a61fafd718b843e052f9482b428675924b3b5322d0b4a1f57810fae3541136","checksum/custom-properties-secret":"ce92e673eac87c0abf5b5fed4ca24c4779d35c4e5fbccc5b62570842809b0d03","checksum/generated-properties-secret":"01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"},"creationTimestamp":null,"labels":{"app":"agent","prometheus.io/path":"prometheus","prometheus.io/port":"8080","prometheus.io/scrape":"true"},"name":"agent"},"spec":{"automountServiceAccountToken":true,"containers":[{"env":[{"name":"QUEUE_CLIENT_SSL_TRUSTSTOREPASSWORD","valueFrom":{"secretKeyRef":{"key":"truststore-password","name":"agent-keystore"}}},{"name":"PROXY_HTTP","valueFrom":{"secretKeyRef":{"key":"HTTP_PROXY","name":"custom-properties","optional":true}}},{"name":"PROXY_NOPROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_NO_PROXY","name":"custom-properties","optional":true}}}],"envFrom":[{"configMapRef":{"name":"app-config"}},{"secretRef":{"name":"generated-properties"}},{"configMapRef":{"name":"agent-config-override","optional":true}},{"configMapRef":{"name":"restore-data","optional":true}}],"image":"rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-agent:2.6.52","imagePullPolicy":"IfNotPresent","livenessProbe":{"failureThreshold":3,"httpGet":{"path":"api/v1/status/liveness","port":8080,"scheme":"HTTP"},"initialDelaySeconds":1800,"periodSeconds":60,"successThreshold":1,"timeoutSeconds":5},"name":"app","ports":[{"containerPort":8080,"protocol":"TCP"}],"readinessProbe":{"failureThreshold":3,"httpGet":{"path":"api/v1/status/ready","port":8080,"scheme":"HTTP"},"initialDelaySeconds":20,"periodSeconds":10,"successThreshold":1,"timeoutSeconds":1},"resources":{"limits":{"cpu":"1","memory":"1000Mi"},"requests":{"cpu":"100m","memory":"400Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"privileged":false,"readOnlyRootFilesystem":true},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/opt/app/ssl","name":"agent-keystore-volume"},{"mountPath":"/tmp","name":"agent-tmp"}]},{"args":["serve","--namespace","rtf"],"command":["/rtfd"],"env":[{"name":"HELM_REPOSITORY_CONFIG","value":"/opt/app/helm-config/repositories.yaml"},{"name":"HELM_REPOSITORY_CACHE","value":"/tmp/helm-cache/"},{"name":"HTTPS_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_PROXY","name":"custom-properties","optional":true}}},{"name":"NO_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_NO_PROXY","name":"custom-properties","optional":true}}},{"name":"ENABLE_CONSOLE_LOG","valueFrom":{"secretKeyRef":{"key":"ENABLE_CONSOLE_LOG","name":"custom-properties","optional":true}}}],"envFrom":[{"configMapRef":{"name":"app-config"}},{"secretRef":{"name":"generated-properties"}}],"image":"rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-daemon:2.0.48","imagePullPolicy":"IfNotPresent","name":"rtfd","resources":{"limits":{"cpu":"50m","memory":"500Mi"},"requests":{"cpu":"20m","memory":"100Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"privileged":false,"readOnlyRootFilesystem":true},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/opt/app/helm-config/repositories.yaml","name":"generated-properties-volume","subPath":"HELM_REPOSITORY_FILE"},{"mountPath":"/tmp","name":"rtfd-tmp"}]}],"dnsPolicy":"ClusterFirst","initContainers":[{"args":["activate","--namespace","rtf"],"command":["/rtfd"],"env":[{"name":"HTTPS_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_PROXY","name":"custom-properties","optional":true}}},{"name":"NO_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_NO_PROXY","name":"custom-properties","optional":true}}}],"envFrom":[{"configMapRef":{"name":"app-config"}}],"image":"rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-daemon:2.0.48","imagePullPolicy":"IfNotPresent","name":"init","resources":{"limits":{"cpu":"50m","memory":"500Mi"},"requests":{"cpu":"20m","memory":"100Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"privileged":false,"readOnlyRootFilesystem":true},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/tmp","name":"rtfd-tmp"}]}],"nodeSelector":{"kubernetes.io/arch":"amd64","kubernetes.io/os":"linux"},"priorityClassName":"rtf-components-high-priority","restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{"runAsGroup":2000,"runAsNonRoot":true,"runAsUser":2020,"seccompProfile":{"type":"RuntimeDefault"}},"serviceAccount":"rtf-agent","serviceAccountName":"rtf-agent","terminationGracePeriodSeconds":90,"volumes":[{"name":"agent-keystore-volume","secret":{"defaultMode":420,"optional":true,"secretName":"agent-keystore"}},{"name":"generated-properties-volume","secret":{"defaultMode":420,"optional":true,"secretName":"generated-properties"}},{"emptyDir":{},"name":"agent-tmp"},{"emptyDir":{},"name":"rtfd-tmp"}]}}},"status":{"availableReplicas":1,"conditions":[{"lastTransitionTime":"2023-12-18T17:08:13Z","lastUpdateTime":"2024-06-25T21:16:36Z","message":"ReplicaSet \"agent-68dccd696d\" has successfully progressed.","reason":"NewReplicaSetAvailable","status":"True","type":"Progressing"},{"lastTransitionTime":"2024-06-25T21:17:46Z","lastUpdateTime":"2024-06-25T21:17:46Z","message":"Deployment has minimum availability.","reason":"MinimumReplicasAvailable","status":"True","type":"Available"}],"observedGeneration":5,"readyReplicas":1,"replicas":1,"updatedReplicas":1}}
     meta.helm.sh/release-name: runtime-fabric
     meta.helm.sh/release-namespace: rtf
     rtf.mulesoft.com/tags: application_management
-  generation: 1
+  generation: 6
   labels:
     app: agent
-    app.kubernetes.io/instance: guestbook
+    app.kubernetes.io/instance: runtime-fabric
     app.kubernetes.io/managed-by: Helm
     rtf.mulesoft.com/agentNamespace: rtf
     rtf.mulesoft.com/component: agent
-    rtf.mulesoft.com/report-status: 'true'
-  managedFields:
-    - apiVersion: apps/v1
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:annotations':
-            .: {}
-            'f:kubectl.kubernetes.io/last-applied-configuration': {}
-            'f:meta.helm.sh/release-name': {}
-            'f:meta.helm.sh/release-namespace': {}
-            'f:rtf.mulesoft.com/tags': {}
-          'f:labels':
-            .: {}
-            'f:app': {}
-            'f:app.kubernetes.io/instance': {}
-            'f:app.kubernetes.io/managed-by': {}
-            'f:rtf.mulesoft.com/agentNamespace': {}
-            'f:rtf.mulesoft.com/component': {}
-            'f:rtf.mulesoft.com/report-status': {}
-        'f:spec':
-          'f:progressDeadlineSeconds': {}
-          'f:replicas': {}
-          'f:revisionHistoryLimit': {}
-          'f:selector': {}
-          'f:strategy':
-            'f:type': {}
-          'f:template':
-            'f:metadata':
-              'f:annotations':
-                .: {}
-                'f:checksum/config': {}
-                'f:checksum/custom-properties-secret': {}
-                'f:checksum/generated-properties-secret': {}
-                'f:kubectl.kubernetes.io/restartedAt': {}
-              'f:labels':
-                .: {}
-                'f:app': {}
-                'f:prometheus.io/path': {}
-                'f:prometheus.io/port': {}
-                'f:prometheus.io/scrape': {}
-              'f:name': {}
-            'f:spec':
-              'f:automountServiceAccountToken': {}
-              'f:containers':
-                'k:{"name":"app"}':
-                  .: {}
-                  'f:env':
-                    .: {}
-                    'k:{"name":"PROXY_HTTP"}':
-                      .: {}
-                      'f:name': {}
-                      'f:valueFrom':
-                        .: {}
-                        'f:secretKeyRef': {}
-                    'k:{"name":"PROXY_NOPROXY"}':
-                      .: {}
-                      'f:name': {}
-                      'f:valueFrom':
-                        .: {}
-                        'f:secretKeyRef': {}
-                    'k:{"name":"QUEUE_CLIENT_SSL_TRUSTSTOREPASSWORD"}':
-                      .: {}
-                      'f:name': {}
-                      'f:valueFrom':
-                        .: {}
-                        'f:secretKeyRef': {}
-                  'f:envFrom': {}
-                  'f:image': {}
-                  'f:imagePullPolicy': {}
-                  'f:livenessProbe':
-                    .: {}
-                    'f:failureThreshold': {}
-                    'f:httpGet':
-                      .: {}
-                      'f:path': {}
-                      'f:port': {}
-                      'f:scheme': {}
-                    'f:initialDelaySeconds': {}
-                    'f:periodSeconds': {}
-                    'f:successThreshold': {}
-                    'f:timeoutSeconds': {}
-                  'f:name': {}
-                  'f:ports':
-                    .: {}
-                    'k:{"containerPort":8080,"protocol":"TCP"}':
-                      .: {}
-                      'f:containerPort': {}
-                      'f:protocol': {}
-                  'f:readinessProbe':
-                    .: {}
-                    'f:failureThreshold': {}
-                    'f:httpGet':
-                      .: {}
-                      'f:path': {}
-                      'f:port': {}
-                      'f:scheme': {}
-                    'f:initialDelaySeconds': {}
-                    'f:periodSeconds': {}
-                    'f:successThreshold': {}
-                    'f:timeoutSeconds': {}
-                  'f:resources':
-                    .: {}
-                    'f:limits':
-                      .: {}
-                      'f:cpu': {}
-                      'f:memory': {}
-                    'f:requests':
-                      .: {}
-                      'f:cpu': {}
-                      'f:memory': {}
-                  'f:securityContext':
-                    .: {}
-                    'f:allowPrivilegeEscalation': {}
-                    'f:capabilities':
-                      .: {}
-                      'f:drop': {}
-                    'f:privileged': {}
-                    'f:readOnlyRootFilesystem': {}
-                  'f:terminationMessagePath': {}
-                  'f:terminationMessagePolicy': {}
-                  'f:volumeMounts':
-                    .: {}
-                    'k:{"mountPath":"/opt/app/ssl"}':
-                      .: {}
-                      'f:mountPath': {}
-                      'f:name': {}
-                    'k:{"mountPath":"/tmp"}':
-                      .: {}
-                      'f:mountPath': {}
-                      'f:name': {}
-                'k:{"name":"rtfd"}':
-                  .: {}
-                  'f:args': {}
-                  'f:command': {}
-                  'f:env':
-                    .: {}
-                    'k:{"name":"ENABLE_CONSOLE_LOG"}':
-                      .: {}
-                      'f:name': {}
-                      'f:valueFrom':
-                        .: {}
-                        'f:secretKeyRef': {}
-                    'k:{"name":"HELM_REPOSITORY_CACHE"}':
-                      .: {}
-                      'f:name': {}
-                      'f:value': {}
-                    'k:{"name":"HELM_REPOSITORY_CONFIG"}':
-                      .: {}
-                      'f:name': {}
-                      'f:value': {}
-                    'k:{"name":"HTTPS_PROXY"}':
-                      .: {}
-                      'f:name': {}
-                      'f:valueFrom':
-                        .: {}
-                        'f:secretKeyRef': {}
-                    'k:{"name":"NO_PROXY"}':
-                      .: {}
-                      'f:name': {}
-                      'f:valueFrom':
-                        .: {}
-                        'f:secretKeyRef': {}
-                  'f:envFrom': {}
-                  'f:image': {}
-                  'f:imagePullPolicy': {}
-                  'f:name': {}
-                  'f:resources':
-                    .: {}
-                    'f:limits':
-                      .: {}
-                      'f:cpu': {}
-                      'f:memory': {}
-                    'f:requests':
-                      .: {}
-                      'f:cpu': {}
-                      'f:memory': {}
-                  'f:securityContext':
-                    .: {}
-                    'f:allowPrivilegeEscalation': {}
-                    'f:capabilities':
-                      .: {}
-                      'f:drop': {}
-                    'f:privileged': {}
-                    'f:readOnlyRootFilesystem': {}
-                  'f:terminationMessagePath': {}
-                  'f:terminationMessagePolicy': {}
-                  'f:volumeMounts':
-                    .: {}
-                    'k:{"mountPath":"/opt/app/helm-config/repositories.yaml"}':
-                      .: {}
-                      'f:mountPath': {}
-                      'f:name': {}
-                      'f:subPath': {}
-                    'k:{"mountPath":"/tmp"}':
-                      .: {}
-                      'f:mountPath': {}
-                      'f:name': {}
-              'f:dnsPolicy': {}
-              'f:initContainers':
-                .: {}
-                'k:{"name":"init"}':
-                  .: {}
-                  'f:args': {}
-                  'f:command': {}
-                  'f:env':
-                    .: {}
-                    'k:{"name":"HTTPS_PROXY"}':
-                      .: {}
-                      'f:name': {}
-                      'f:valueFrom':
-                        .: {}
-                        'f:secretKeyRef': {}
-                    'k:{"name":"NO_PROXY"}':
-                      .: {}
-                      'f:name': {}
-                      'f:valueFrom':
-                        .: {}
-                        'f:secretKeyRef': {}
-                  'f:envFrom': {}
-                  'f:image': {}
-                  'f:imagePullPolicy': {}
-                  'f:name': {}
-                  'f:resources':
-                    .: {}
-                    'f:limits':
-                      .: {}
-                      'f:cpu': {}
-                      'f:memory': {}
-                    'f:requests':
-                      .: {}
-                      'f:cpu': {}
-                      'f:memory': {}
-                  'f:securityContext':
-                    .: {}
-                    'f:allowPrivilegeEscalation': {}
-                    'f:capabilities':
-                      .: {}
-                      'f:drop': {}
-                    'f:privileged': {}
-                    'f:readOnlyRootFilesystem': {}
-                  'f:terminationMessagePath': {}
-                  'f:terminationMessagePolicy': {}
-                  'f:volumeMounts':
-                    .: {}
-                    'k:{"mountPath":"/tmp"}':
-                      .: {}
-                      'f:mountPath': {}
-                      'f:name': {}
-              'f:nodeSelector': {}
-              'f:priorityClassName': {}
-              'f:restartPolicy': {}
-              'f:schedulerName': {}
-              'f:securityContext':
-                .: {}
-                'f:runAsGroup': {}
-                'f:runAsNonRoot': {}
-                'f:runAsUser': {}
-                'f:seccompProfile':
-                  .: {}
-                  'f:type': {}
-              'f:serviceAccount': {}
-              'f:serviceAccountName': {}
-              'f:terminationGracePeriodSeconds': {}
-              'f:volumes':
-                .: {}
-                'k:{"name":"agent-keystore-volume"}':
-                  .: {}
-                  'f:name': {}
-                  'f:secret':
-                    .: {}
-                    'f:defaultMode': {}
-                    'f:optional': {}
-                    'f:secretName': {}
-                'k:{"name":"agent-tmp"}':
-                  .: {}
-                  'f:emptyDir': {}
-                  'f:name': {}
-                'k:{"name":"generated-properties-volume"}':
-                  .: {}
-                  'f:name': {}
-                  'f:secret':
-                    .: {}
-                    'f:defaultMode': {}
-                    'f:optional': {}
-                    'f:secretName': {}
-                'k:{"name":"rtfd-tmp"}':
-                  .: {}
-                  'f:emptyDir': {}
-                  'f:name': {}
-      manager: argocd-controller
-      operation: Update
-      time: '2024-08-12T20:45:45Z'
-    - apiVersion: apps/v1
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:annotations':
-            'f:deployment.kubernetes.io/revision': {}
-        'f:status':
-          'f:availableReplicas': {}
-          'f:conditions':
-            .: {}
-            'k:{"type":"Available"}':
-              .: {}
-              'f:lastTransitionTime': {}
-              'f:lastUpdateTime': {}
-              'f:message': {}
-              'f:reason': {}
-              'f:status': {}
-              'f:type': {}
-            'k:{"type":"Progressing"}':
-              .: {}
-              'f:lastTransitionTime': {}
-              'f:lastUpdateTime': {}
-              'f:message': {}
-              'f:reason': {}
-              'f:status': {}
-              'f:type': {}
-          'f:observedGeneration': {}
-          'f:readyReplicas': {}
-          'f:replicas': {}
-          'f:updatedReplicas': {}
-      manager: kube-controller-manager
-      operation: Update
-      subresource: status
-      time: '2024-08-12T20:46:25Z'
+    rtf.mulesoft.com/report-status: "true"
   name: agent
   namespace: rtf
 spec:
@@ -363,197 +33,196 @@ spec:
         checksum/config: 40a61fafd718b843e052f9482b428675924b3b5322d0b4a1f57810fae3541136
         checksum/custom-properties-secret: ce92e673eac87c0abf5b5fed4ca24c4779d35c4e5fbccc5b62570842809b0d03
         checksum/generated-properties-secret: 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
-        kubectl.kubernetes.io/restartedAt: '2024-08-12T18:58:29Z'
       labels:
         app: agent
         prometheus.io/path: prometheus
-        prometheus.io/port: '8080'
-        prometheus.io/scrape: 'true'
+        prometheus.io/port: "8080"
+        prometheus.io/scrape: "true"
       name: agent
     spec:
       automountServiceAccountToken: true
       containers:
-        - env:
-            - name: QUEUE_CLIENT_SSL_TRUSTSTOREPASSWORD
-              valueFrom:
-                secretKeyRef:
-                  key: truststore-password
-                  name: agent-keystore
-            - name: PROXY_HTTP
-              valueFrom:
-                secretKeyRef:
-                  key: HTTP_PROXY
-                  name: custom-properties
-                  optional: true
-            - name: PROXY_NOPROXY
-              valueFrom:
-                secretKeyRef:
-                  key: HTTP_NO_PROXY
-                  name: custom-properties
-                  optional: true
-          envFrom:
-            - configMapRef:
-                name: app-config
-            - secretRef:
-                name: generated-properties
-            - configMapRef:
-                name: agent-config-override
-                optional: true
-            - configMapRef:
-                name: restore-data
-                optional: true
-          image: 'rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-agent:2.6.52'
-          imagePullPolicy: IfNotPresent
-          livenessProbe:
-            failureThreshold: 3
-            httpGet:
-              path: api/v1/status/liveness
-              port: 8080
-              scheme: HTTP
-            initialDelaySeconds: 1800
-            periodSeconds: 60
-            successThreshold: 1
-            timeoutSeconds: 5
-          name: app
-          ports:
-            - containerPort: 8080
-              protocol: TCP
-          readinessProbe:
-            failureThreshold: 3
-            httpGet:
-              path: api/v1/status/ready
-              port: 8080
-              scheme: HTTP
-            initialDelaySeconds: 20
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 1
-          resources:
-            limits:
-              cpu: '1'
-              memory: 1000Mi
-            requests:
-              cpu: 100m
-              memory: 400Mi
-          securityContext:
-            allowPrivilegeEscalation: false
-            capabilities:
-              drop:
-                - ALL
-            privileged: false
-            readOnlyRootFilesystem: true
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
-          volumeMounts:
-            - mountPath: /opt/app/ssl
-              name: agent-keystore-volume
-            - mountPath: /tmp
-              name: agent-tmp
-        - args:
-            - serve
-            - '--namespace'
-            - rtf
-          command:
-            - /rtfd
-          env:
-            - name: HELM_REPOSITORY_CONFIG
-              value: /opt/app/helm-config/repositories.yaml
-            - name: HELM_REPOSITORY_CACHE
-              value: /tmp/helm-cache/
-            - name: HTTPS_PROXY
-              valueFrom:
-                secretKeyRef:
-                  key: HTTP_PROXY
-                  name: custom-properties
-                  optional: true
-            - name: NO_PROXY
-              valueFrom:
-                secretKeyRef:
-                  key: HTTP_NO_PROXY
-                  name: custom-properties
-                  optional: true
-            - name: ENABLE_CONSOLE_LOG
-              valueFrom:
-                secretKeyRef:
-                  key: ENABLE_CONSOLE_LOG
-                  name: custom-properties
-                  optional: true
-          envFrom:
-            - configMapRef:
-                name: app-config
-            - secretRef:
-                name: generated-properties
-          image: 'rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-daemon:2.0.48'
-          imagePullPolicy: IfNotPresent
-          name: rtfd
-          resources:
-            limits:
-              cpu: 50m
-              memory: 500Mi
-            requests:
-              cpu: 20m
-              memory: 100Mi
-          securityContext:
-            allowPrivilegeEscalation: false
-            capabilities:
-              drop:
-                - ALL
-            privileged: false
-            readOnlyRootFilesystem: true
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
-          volumeMounts:
-            - mountPath: /opt/app/helm-config/repositories.yaml
-              name: generated-properties-volume
-              subPath: HELM_REPOSITORY_FILE
-            - mountPath: /tmp
-              name: rtfd-tmp
+      - env:
+        - name: QUEUE_CLIENT_SSL_TRUSTSTOREPASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: truststore-password
+              name: agent-keystore
+        - name: PROXY_HTTP
+          valueFrom:
+            secretKeyRef:
+              key: HTTP_PROXY
+              name: custom-properties
+              optional: true
+        - name: PROXY_NOPROXY
+          valueFrom:
+            secretKeyRef:
+              key: HTTP_NO_PROXY
+              name: custom-properties
+              optional: true
+        envFrom:
+        - configMapRef:
+            name: app-config
+        - secretRef:
+            name: generated-properties
+        - configMapRef:
+            name: agent-config-override
+            optional: true
+        - configMapRef:
+            name: restore-data
+            optional: true
+        image: rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-agent:2.6.52
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: api/v1/status/liveness
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 1800
+          periodSeconds: 60
+          successThreshold: 1
+          timeoutSeconds: 5
+        name: app
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: api/v1/status/ready
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources:
+          limits:
+            cpu: "1"
+            memory: 1000Mi
+          requests:
+            cpu: 100m
+            memory: 400Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          readOnlyRootFilesystem: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /opt/app/ssl
+          name: agent-keystore-volume
+        - mountPath: /tmp
+          name: agent-tmp
+      - args:
+        - serve
+        - --namespace
+        - rtf
+        command:
+        - /rtfd
+        env:
+        - name: HELM_REPOSITORY_CONFIG
+          value: /opt/app/helm-config/repositories.yaml
+        - name: HELM_REPOSITORY_CACHE
+          value: /tmp/helm-cache/
+        - name: HTTPS_PROXY
+          valueFrom:
+            secretKeyRef:
+              key: HTTP_PROXY
+              name: custom-properties
+              optional: true
+        - name: NO_PROXY
+          valueFrom:
+            secretKeyRef:
+              key: HTTP_NO_PROXY
+              name: custom-properties
+              optional: true
+        - name: ENABLE_CONSOLE_LOG
+          valueFrom:
+            secretKeyRef:
+              key: ENABLE_CONSOLE_LOG
+              name: custom-properties
+              optional: true
+        envFrom:
+        - configMapRef:
+            name: app-config
+        - secretRef:
+            name: generated-properties
+        image: rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-daemon:2.0.48
+        imagePullPolicy: IfNotPresent
+        name: rtfd
+        resources:
+          limits:
+            cpu: 50m
+            memory: 500Mi
+          requests:
+            cpu: 20m
+            memory: 100Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          readOnlyRootFilesystem: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /opt/app/helm-config/repositories.yaml
+          name: generated-properties-volume
+          subPath: HELM_REPOSITORY_FILE
+        - mountPath: /tmp
+          name: rtfd-tmp
       dnsPolicy: ClusterFirst
       initContainers:
-        - args:
-            - activate
-            - '--namespace'
-            - rtf
-          command:
-            - /rtfd
-          env:
-            - name: HTTPS_PROXY
-              valueFrom:
-                secretKeyRef:
-                  key: HTTP_PROXY
-                  name: custom-properties
-                  optional: true
-            - name: NO_PROXY
-              valueFrom:
-                secretKeyRef:
-                  key: HTTP_NO_PROXY
-                  name: custom-properties
-                  optional: true
-          envFrom:
-            - configMapRef:
-                name: app-config
-          image: 'rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-daemon:2.0.48'
-          imagePullPolicy: IfNotPresent
-          name: init
-          resources:
-            limits:
-              cpu: 50m
-              memory: 500Mi
-            requests:
-              cpu: 20m
-              memory: 100Mi
-          securityContext:
-            allowPrivilegeEscalation: false
-            capabilities:
-              drop:
-                - ALL
-            privileged: false
-            readOnlyRootFilesystem: true
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
-          volumeMounts:
-            - mountPath: /tmp
-              name: rtfd-tmp
+      - args:
+        - activate
+        - --namespace
+        - rtf
+        command:
+        - /rtfd
+        env:
+        - name: HTTPS_PROXY
+          valueFrom:
+            secretKeyRef:
+              key: HTTP_PROXY
+              name: custom-properties
+              optional: true
+        - name: NO_PROXY
+          valueFrom:
+            secretKeyRef:
+              key: HTTP_NO_PROXY
+              name: custom-properties
+              optional: true
+        envFrom:
+        - configMapRef:
+            name: app-config
+        image: rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-daemon:2.0.48
+        imagePullPolicy: IfNotPresent
+        name: init
+        resources:
+          limits:
+            cpu: 50m
+            memory: 500Mi
+          requests:
+            cpu: 20m
+            memory: 100Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          readOnlyRootFilesystem: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /tmp
+          name: rtfd-tmp
       nodeSelector:
         kubernetes.io/arch: amd64
         kubernetes.io/os: linux
@@ -570,36 +239,36 @@ spec:
       serviceAccountName: rtf-agent
       terminationGracePeriodSeconds: 90
       volumes:
-        - name: agent-keystore-volume
-          secret:
-            defaultMode: 420
-            optional: true
-            secretName: agent-keystore
-        - name: generated-properties-volume
-          secret:
-            defaultMode: 420
-            optional: true
-            secretName: generated-properties
-        - emptyDir: {}
-          name: agent-tmp
-        - emptyDir: {}
-          name: rtfd-tmp
+      - name: agent-keystore-volume
+        secret:
+          defaultMode: 420
+          optional: true
+          secretName: agent-keystore
+      - name: generated-properties-volume
+        secret:
+          defaultMode: 420
+          optional: true
+          secretName: generated-properties
+      - emptyDir: {}
+        name: agent-tmp
+      - emptyDir: {}
+        name: rtfd-tmp
 status:
   availableReplicas: 1
   conditions:
-    - lastTransitionTime: '2024-08-12T20:46:25Z'
-      lastUpdateTime: '2024-08-12T20:46:25Z'
-      message: Deployment has minimum availability.
-      reason: MinimumReplicasAvailable
-      status: 'True'
-      type: Available
-    - lastTransitionTime: '2024-08-12T20:45:45Z'
-      lastUpdateTime: '2024-08-12T20:46:25Z'
-      message: ReplicaSet "agent-5bff94f7fb" has successfully progressed.
-      reason: NewReplicaSetAvailable
-      status: 'True'
-      type: Progressing
-  observedGeneration: 1
+  - lastTransitionTime: "2023-12-18T17:08:13Z"
+    lastUpdateTime: "2024-06-25T21:40:24Z"
+    message: ReplicaSet "agent-7789b94996" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2024-07-31T20:09:42Z"
+    lastUpdateTime: "2024-07-31T20:09:42Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 6
   readyReplicas: 1
   replicas: 1
   updatedReplicas: 1
