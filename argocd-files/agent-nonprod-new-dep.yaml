@@ -12,7 +12,6 @@ metadata:
     meta.helm.sh/release-name: runtime-fabric
     meta.helm.sh/release-namespace: rtf
     rtf.mulesoft.com/tags: application_management
-  creationTimestamp: '2024-08-12T20:45:45Z'
   generation: 1
   labels:
     app: agent
@@ -349,8 +348,6 @@ metadata:
       time: '2024-08-12T20:46:25Z'
   name: agent
   namespace: rtf
-  resourceVersion: '208331388'
-  uid: 8f757e0c-9088-4384-a330-f449ca74208a
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -367,7 +364,6 @@ spec:
         checksum/custom-properties-secret: ce92e673eac87c0abf5b5fed4ca24c4779d35c4e5fbccc5b62570842809b0d03
         checksum/generated-properties-secret: 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
         kubectl.kubernetes.io/restartedAt: '2024-08-12T18:58:29Z'
-      creationTimestamp: null
       labels:
         app: agent
         prometheus.io/path: prometheus
