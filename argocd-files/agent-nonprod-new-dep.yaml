@@ -16,7 +16,7 @@ metadata:
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
-  revisionHistoryLimit: 1
+  revisionHistoryLimit: 0
   selector:
     matchLabels:
       app: agent
@@ -156,7 +156,7 @@ spec:
             memory: 500Mi
           requests:
             cpu: 20m
-            memory: 201Mi
+            memory: 100Mi
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
