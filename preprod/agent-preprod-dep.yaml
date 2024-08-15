@@ -5,7 +5,6 @@ metadata:
     meta.helm.sh/release-name: runtime-fabric
     meta.helm.sh/release-namespace: rtf
     rtf.mulesoft.com/tags: application_management
-  generation: 3
   labels:
     app: agent
     app.kubernetes.io/instance: runtime-fabric
