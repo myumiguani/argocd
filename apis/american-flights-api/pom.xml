@@ -19,25 +19,11 @@
                 <version>3.1.0</version>
             </plugin>
             <plugin>
-		<groupId>org.mule.tools.maven</groupId>
-		<artifactId>mule-maven-plugin</artifactId>
-		<version>3.3.5</version>
-		<extensions>true</extensions>
-		<configuration>
-			<runtimeFabricDeployment>
-			      <uri>https://anypoint.mulesoft.com</uri>
-			      <muleVersion>4.3.0</muleVersion>
-			      <username>mikeyumi</username>
-			      <password>@@@@Warcarft1234</password>
-			      <applicationName>american-flights-api</applicationName>
-			      <target>rtf</target>
-			      <environment>Sandbox</environment>
-			      <provider>MC</provider>
-			      <properties>
-			        <key>value</key>
-			      </properties>
-			</runtimeFabricDeployment>
-		</configuration>
+                <groupId>org.mule.tools.maven</groupId>
+                <artifactId>mule-maven-plugin</artifactId>
+                <version>${mule.maven.plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration/>
             </plugin>
         </plugins>
     </build>
