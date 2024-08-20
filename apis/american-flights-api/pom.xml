@@ -33,7 +33,7 @@
 			      <target>rtf</target>
 			      <environment>Sandbox</environment>
 			      <provider>MC</provider>
-			      <replicas>1</replicas>
+			      <replicationFactor>1</replicationFactor>
 			      <properties>
 			        <key>value</key>
 			      </properties>
