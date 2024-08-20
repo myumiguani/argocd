@@ -33,12 +33,10 @@
 			      <target>rtf</target>
 			      <environment>Sandbox</environment>
 			      <provider>MC</provider>
-			      <replicas>1</replicas>
 			      <properties>
 			        <key>value</key>
 			      </properties>
 			      <deploymentSettings>
-			        <enforceDeployingReplicasAcrossNodes>false</enforceDeployingReplicasAcrossNodes>
 			        <updateStrategy>recreate</updateStrategy>
 			        <clustered>false</clustered>
 			        <forwardSslSession>false</forwardSslSession>
