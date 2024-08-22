@@ -86,11 +86,11 @@ jobs:
           PASSWORD: "@@@@Warcarft1234"
         run: |
           pwd
-          cd apis/american-flights-api
+          cd apis/american-flights-api/
           pwd
           ls
-          artifactName=$(ls /target/*.jar | head -1)
-          mvn deploy -DmuleDeploy -e \
-            -Dmule.artifact=$artifactName \
-            -Danypoint.username="$USERNAME" \
-            -Danypoint.password="$PASSWORD"
+          artifactName=$(ls target/*.jar | head -1)
+          # mvn deploy -DmuleDeploy -e \
+          #   -Dmule.artifact=$artifactName \
+          #   -Danypoint.username="$USERNAME" \
+          #   -Danypoint.password="$PASSWORD"
