@@ -88,11 +88,11 @@ jobs:
           PASSWORD: "@@@@Warcarft1234"
         run: |
           pwd
-          ls
           cd apis/american-flights-api
-          ls
           artifactName=$(ls *.jar | head -1)
           mvn deploy -DmuleDeploy -e \
             -Dmule.artifact=$artifactName \
+            -Dmaven.surefire.debug \
+            -Denv=Sandbox \
             -Danypoint.username="$USERNAME" \
             -Danypoint.password="$PASSWORD"
