@@ -57,6 +57,8 @@ jobs:
           artifactName1=$(ls apis/american-flights-api/target/*.jar | head -1)
           commitHash=$(git rev-parse --short "$GITHUB_SHA")
           artifactName2=$(ls apis/american-flights-api/target/*.jar | head -1 | sed "s/.jar/-$commitHash.jar/g")
+          echo artifactName1
+          ehco artifactName2
           
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
