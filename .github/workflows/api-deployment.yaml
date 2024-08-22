@@ -88,7 +88,8 @@ jobs:
           pwd
           cd apis/american-flights-api
           pwd
-          artifactName=$(ls target/*.jar | head -1)
+          ls
+          artifactName=$(ls /target/*.jar | head -1)
           mvn deploy -DmuleDeploy -e \
             -Dmule.artifact=$artifactName \
             -Danypoint.username="$USERNAME" \
