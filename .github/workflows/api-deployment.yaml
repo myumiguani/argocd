@@ -47,18 +47,13 @@ jobs:
       - name: build with maven
         run: |
           pwd
-          ls
           mvn -B package --file apis/american-flights-api/pom.xml
           
       - name: stamp artifact
         run: |
-          pwd
-          ls
           artifactName1=$(ls apis/american-flights-api/target/*.jar | head -1)
           commitHash=$(git rev-parse --short "$GITHUB_SHA")
           artifactName2=$(ls apis/american-flights-api/target/*.jar | head -1 | sed "s/.jar/-$commitHash.jar/g")
-          echo artifactName1
-          ehco artifactName2
           
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
@@ -87,6 +82,8 @@ jobs:
           USERNAME: "mikeyumi"
           PASSWORD: "@@@@Warcarft1234"
         run: |
+          pwd
+          ls
           artifactName=$(ls apis/american-flights-api/target/*.jar | head -1)
           mvn deploy -DmuleDeploy -e \
             -Dmule.artifact=$artifactName \
