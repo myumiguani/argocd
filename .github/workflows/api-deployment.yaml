@@ -63,3 +63,30 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+  deploy:
+    needs: build
+    runs-on: ubantu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashfiles('**/pom.xml') }}
+          restore-key: |
+            ${{ runner.os }}-maven-
+      - uses: actions/download-artifact@master
+        with:
+          name: artifacts
+          
+      - name: deploy to Sandbox
+        env: 
+          USERNAME: "mikeyumi"
+          PASSWORD: "@@@@Warcarft1234"
+        run: |
+          artifactName=$(ls apis/american-flights-api/target/*.jar | head -1)
+          mvn deploy -DmuleDeploy -e \
+            -Dmule.artifact=$artifactName \
+            -Danypoint.username="$USERNAME" \
+            -Danypoint.password="$PASSWORD"
