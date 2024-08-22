@@ -91,7 +91,7 @@ jobs:
           ls
           cd apis/american-flights-api
           ls
-          artifactName=$(ls /*.jar | head -1)
+          artifactName=$(ls *.jar | head -1)
           mvn deploy -DmuleDeploy -e \
             -Dmule.artifact=$artifactName \
             -Danypoint.username="$USERNAME" \
