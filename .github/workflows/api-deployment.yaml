@@ -80,6 +80,7 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: artifact
+          path: apis/american-flights-api
           
       - name: deploy to Sandbox
         env: 
@@ -88,7 +89,7 @@ jobs:
         run: |
           pwd
           ls
-          artifactName=$(ls *.jar | head -1)
+          artifactName=$(ls apis/american-flights-api/*.jar | head -1)
           mvn deploy -DmuleDeploy -e \
             -Dmule.artifact=$artifactName \
             -Danypoint.username="$USERNAME" \
