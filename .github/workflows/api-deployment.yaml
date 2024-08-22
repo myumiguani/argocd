@@ -87,7 +87,8 @@ jobs:
         run: |
           pwd
           cd apis/american-flights-api
-          artifactName=$(ls apis/american-flights-api/target/*.jar | head -1)
+          pwd
+          artifactName=$(ls target/*.jar | head -1)
           mvn deploy -DmuleDeploy -e \
             -Dmule.artifact=$artifactName \
             -Danypoint.username="$USERNAME" \
