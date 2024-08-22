@@ -86,7 +86,7 @@ jobs:
           PASSWORD: "@@@@Warcarft1234"
         run: |
           pwd
-          ls
+          cd apis/american-flights-api
           artifactName=$(ls apis/american-flights-api/target/*.jar | head -1)
           mvn deploy -DmuleDeploy -e \
             -Dmule.artifact=$artifactName \
