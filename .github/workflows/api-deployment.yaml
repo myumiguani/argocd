@@ -89,7 +89,7 @@ jobs:
         run: |
           pwd
           ls
-          cd apis/american-flgihts-api
+          cd apis/american-flights-api
           artifactName=$(ls apis/american-flights-api/*.jar | head -1)
           mvn deploy -DmuleDeploy -e \
             -Dmule.artifact=$artifactName \
