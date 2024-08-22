@@ -48,6 +48,7 @@ jobs:
         run: |
           pwd
           mvn -B package --file apis/american-flights-api/pom.xml
+          ls apis/american-flights-api
           
       - name: stamp artifact
         run: |
