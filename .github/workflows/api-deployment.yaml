@@ -54,7 +54,7 @@ jobs:
         run: |
           pwd
           ls
-          artifactName1=$(ls target/*.jar | head -l)
+          artifactName1=$(ls apis/target/*.jar | head -l)
           commitHash=$(git rev-parse --short "$GITHUB_SHA")
           artifactName2=$(ls target/*.jar | head -l | sed "s/.jar/-$commitHash.jar/g")
           
