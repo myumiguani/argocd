@@ -60,6 +60,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -73,9 +74,10 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashfiles('**/pom.xml') }}
           restore-key: |
             ${{ runner.os }}-maven-
+            
       - uses: actions/download-artifact@master
         with:
-          name: artifacts
+          name: artifact
           
       - name: deploy to Sandbox
         env: 
