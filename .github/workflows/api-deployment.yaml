@@ -65,7 +65,7 @@ jobs:
           echo test, and deploy your project.
   deploy:
     needs: build
-    runs-on: ubantu-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
