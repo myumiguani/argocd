@@ -97,7 +97,7 @@ jobs:
           artifactName=$(ls *.jar | head -1)
           mvn deploy -DmuleDeploy -e \
             -Dmule.artifact=$artifactName \
-            -Dmaven.surefire.debug \
-            -Denv=Sandbox \
-            -Danypoint.username="$USERNAME" \
-            -Danypoint.password="$PASSWORD"
+            # -Denv=Sandbox \
+            # -Danypoint.username="$USERNAME" \
+            # -Danypoint.password="$PASSWORD" \
+            -Dmaven.surefire.debug 
