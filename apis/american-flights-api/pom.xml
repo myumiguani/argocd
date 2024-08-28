@@ -30,7 +30,7 @@
 			      <username>mikeyumi</username>
 			      <password>@@@@Warcarft1234</password>
 			      <applicationName>american-flights-api</applicationName>
-			      <target>rtf</target>
+<!-- 			      <target>rtf</target> -->
 			      <environment>Sandbox</environment>
 			      <provider>MC</provider>
 			      <properties>
