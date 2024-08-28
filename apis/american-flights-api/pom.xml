@@ -26,7 +26,7 @@
 			  <configuration>
 			    <runtimeFabricDeployment>
 			      <uri>https://anypoint.mulesoft.com</uri>
-			      <muleVersion>4.3.0</muleVersion>
+			      <muleVersion>4.4.0</muleVersion>
 			      <username>mikeyumi</username>
 			      <password>@@@@Warcarft1234</password>
 			      <applicationName>american-flights-api</applicationName>
