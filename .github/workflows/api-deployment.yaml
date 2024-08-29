@@ -90,8 +90,8 @@ jobs:
           
       - name: deploy to Sandbox
         env: 
-          USERNAME: "mikeyumi"
-          PASSWORD: "@@@@Warcarft1234"
+          ID: ${{ secrets.CONNECTED_APP_CLIENT_ID }}
+          SECRET: ${{ secrets.CONNECTED_APP_CLIENT_SECRET }}
         run: |
           pwd
           cd apis/american-flights-api
@@ -99,6 +99,8 @@ jobs:
           mvn deploy -DmuleDeploy -e \
             -Dmule.artifact=$artifactName \
             -Denv=Sandbox \
-            -Danypoint.username="$USERNAME" \
-            -Danypoint.password="$PASSWORD" \
-            -Dmaven.surefire.debug 
+            -Dclient.id="$ID" \
+            -Dclient.secret="$SECRET"
+            # -Danypoint.username="$USERNAME" \
+            # -Danypoint.password="$PASSWORD" \
+            # -Dmaven.surefire.debug 
