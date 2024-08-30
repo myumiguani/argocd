@@ -95,6 +95,9 @@ jobs:
         run: |
           pwd
           cd apis/american-flights-api
+          echo "$ID"
+          echo "$SECRET"
+          echo "done"
           artifactName=$(ls *.jar | head -1)
           mvn deploy -DmuleDeploy -e \
             -Dmule.artifact=$artifactName \
