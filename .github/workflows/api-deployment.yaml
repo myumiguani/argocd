@@ -102,8 +102,8 @@ jobs:
           mvn deploy -DmuleDeploy -e \
             -Dmule.artifact=$artifactName \
             -Denv=Sandbox \
-            -Dclient.id="$ID" \
-            -Dclient.secret="$SECRET"
+            -Dclient.id=$ID \
+            -Dclient.secret=$SECRET
             # -Danypoint.username="$USERNAME" \
             # -Danypoint.password="$PASSWORD" \
             # -Dmaven.surefire.debug 
