@@ -35,6 +35,7 @@
 			      <applicationName>american-flights-api</applicationName>
 			      <target>Azure non-prod</target>
 			      <environment>Sandbox</environment>
+			      <businessGroup>C4E</businessGroup>
 			      <provider>MC</provider>
 			      <properties>
 			        <key>value</key>
