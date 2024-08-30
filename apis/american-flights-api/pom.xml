@@ -33,7 +33,7 @@
 <!-- 			      <username>mikeyumi</username>
 			      <password>@@@@Warcarft1234</password> -->
 			      <applicationName>american-flights-api</applicationName>
-			      <target>Applications</target>
+			      <target>Azure non-prod</target>
 			      <environment>Sandbox</environment>
 			      <provider>MC</provider>
 			      <properties>
