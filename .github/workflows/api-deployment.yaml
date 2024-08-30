@@ -96,6 +96,7 @@ jobs:
           pwd
           cd apis/american-flights-api
           artifactName=$(ls *.jar | head -1)
+          echo $artifactName
           mvn deploy -DmuleDeploy -e \
             -Dmule.artifact=$artifactName \
             # -Dclient.id="$ID" \
