@@ -89,18 +89,18 @@ jobs:
           path: apis/american-flights-api
           
       - name: deploy to Sandbox
-        env: 
-          ID: "41b9450c63ee4d7996be1f5f1bde72a4" #${{ secrets.CONNECTED_APP_CLIENT_ID }}
-          SECRET: "80b9C96173124E38BDd787834c8aFc8F" # ${{ secrets.CONNECTED_APP_CLIENT_SECRET }}
+        # env: 
+        #   ID: "41b9450c63ee4d7996be1f5f1bde72a4" #${{ secrets.CONNECTED_APP_CLIENT_ID }}
+        #   SECRET: "80b9C96173124E38BDd787834c8aFc8F" # ${{ secrets.CONNECTED_APP_CLIENT_SECRET }}
         run: |
           pwd
           cd apis/american-flights-api
           artifactName=$(ls *.jar | head -1)
           mvn deploy -DmuleDeploy -e \
             -Dmule.artifact=$artifactName \
-            -Denv="Sandbox" \
-            -Dclient.id="$ID" \
-            -Dclient.secret="$SECRET"
+            -Denv=Sandbox \
+            -Dclient.id=41b9450c63ee4d7996be1f5f1bde72a4 \
+            -Dclient.secret=80b9C96173124E38BDd787834c8aFc8F
             # -Danypoint.username="$USERNAME" \
             # -Danypoint.password="$PASSWORD" \
             # -Dmaven.surefire.debug 
