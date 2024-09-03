@@ -37,9 +37,9 @@
 			      <environment>Sandbox</environment>
 			      <businessGroupId>93bea448-1195-4081-8f7f-e21a7de64982</businessGroupId>
 			      <provider>MC</provider>
-			      <properties>
+<!-- 			      <properties>
 			        <key>value</key>
-			      </properties>
+			      </properties> -->
 			    </runtimeFabricDeployment>
 			  </configuration>
             </plugin>
