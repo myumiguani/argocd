@@ -27,8 +27,8 @@
 			    <runtimeFabricDeployment>
 			      <uri>https://anypoint.mulesoft.com</uri>
 			      <muleVersion>4.4.0</muleVersion>
-			      <connectedAppClientId>41b9450c63ee4d7996be1f5f1bde72a4</connectedAppClientId>
-			      <connectedAppClientSecret>80b9C96173124E38BDd787834c8aFc8F</connectedAppClientSecret>
+			      <connectedAppClientId>7de69635c7f64d5396c760ac58407e04</connectedAppClientId>
+			      <connectedAppClientSecret>fcdee06459b046A59eeB9127FE873728</connectedAppClientSecret>
 			      <connectedAppGrantType>client_credentials</connectedAppGrantType>
 <!-- 			      <username>mikeyumi</username>
 			      <password>@@@@Warcarft1234</password> -->
