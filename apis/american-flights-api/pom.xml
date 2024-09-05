@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>93bea448-1195-4081-8f7f-e21a7de64982</groupId>
     <artifactId>american-flights-api</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>mule-application</packaging>
     <name>american-flights-api</name>
     <properties>
@@ -37,9 +37,18 @@
 			      <environment>Sandbox</environment>
 			      <businessGroupId>93bea448-1195-4081-8f7f-e21a7de64982</businessGroupId>
 			      <provider>MC</provider>
-<!-- 			      <properties>
-			        <key>value</key>
-			      </properties> -->
+			      <replicas>1</replicas>
+				<deploymentSettings>
+				  <resources>
+				    <cpu>
+				      <reserved>20m</reserved>
+				      <limit>1000m</limit>
+				    </cpu>
+				    <memory>
+				      <reserved>1000Mi</reserved>
+				    </memory>
+				  </resources>
+				</deploymentSettings>
 			    </runtimeFabricDeployment>
 			  </configuration>
             </plugin>
