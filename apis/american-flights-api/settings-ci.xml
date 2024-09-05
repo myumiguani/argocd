@@ -5,7 +5,7 @@
           http://maven.apache.org/xsd/settings-1.0.0.xsd">
   <servers>
     <server>
-      <id>Repository</id>
+      <id>anypoint-exchange</id>
       <username>~~~Client~~~</username>
       <password>41b9450c63ee4d7996be1f5f1bde72a4~?~80b9C96173124E38BDd787834c8aFc8F</password>
     </server>
