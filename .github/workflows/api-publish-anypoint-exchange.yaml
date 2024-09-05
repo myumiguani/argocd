@@ -17,11 +17,6 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
-        
-      - name: Install api-catalog cli
-        run: |
-          sudo apt-get update
-          npm install -g api-catalog-cli@latest
           
       - name: Publish API to Anypoint Exchange
         env: 
@@ -31,7 +26,7 @@ jobs:
         run: |
           cd apis
           cd american-flights-api
-          mvn -DskipTests clean deploy -s settingsfilename.xml
+          mvn -DskipTests clean deploy -s settings-ci.xml
           # api-catalog publish-asset --organization="$ANYPOINT_ORG_ID" --username="$ANYPOINT_USERNAME" --password="$ANYPOINT_PASSWORD" --json
 
 
