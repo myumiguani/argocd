@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.mycompany</groupId>
+    <groupId>93bea448-1195-4081-8f7f-e21a7de64982</groupId>
     <artifactId>american-flights-api</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>mule-application</packaging>
@@ -70,6 +70,14 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+    <distributionManagement>
+	<repository>
+	<id>anypoint-exchange</id>
+	<name>Exchange Repository</name>
+	<url>https://maven.anypoint.mulesoft.com/api/v1/organizations/93bea448-1195-4081-8f7f-e21a7de64982/maven</url>
+	<layout>default</layout>
+	</repository>
+    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>68ef9520-24e9-4cf2-b2f5-620025690913</groupId>
