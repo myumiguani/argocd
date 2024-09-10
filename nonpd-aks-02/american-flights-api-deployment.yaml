@@ -1,0 +1,980 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: american-flights-api
+  namespace: c4e-sandbox
+  uid: d23d38ab-b90d-4932-9544-30cb0f6f1872
+  resourceVersion: '229749332'
+  generation: 3
+  creationTimestamp: '2024-09-06T18:26:15Z'
+  labels:
+    app.kubernetes.io/managed-by: Helm
+    environment: d37ea7f5-c415-44c0-8a37-55921066d716
+    organization: 93bea448-1195-4081-8f7f-e21a7de64982
+    rtf.mulesoft.com/agentNamespace: rtf
+    rtf.mulesoft.com/disableAmLogForwarding: 'true'
+    rtf.mulesoft.com/id: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+    rtf.mulesoft.com/status: READY
+    rtf.mulesoft.com/version: 267ef8c0-266d-453e-8e88-de98f398dfbf
+    type: MuleApplication
+  annotations:
+    deployment.kubernetes.io/revision: '1'
+    meta.helm.sh/release-name: american-flights-api
+    meta.helm.sh/release-namespace: c4e-sandbox
+    rtf.mulesoft.com/desiredStatus: STARTED
+    rtf.mulesoft.com/last-publish-hash: 3eb3aadd45d0151b1715834ca88f92ad
+    rtf.mulesoft.com/replicas: '1'
+    rtf.mulesoft.com/version: 267ef8c0-266d-453e-8e88-de98f398dfbf
+  managedFields:
+    - manager: rtfd
+      operation: Update
+      apiVersion: apps/v1
+      time: '2024-09-06T18:26:15Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:rtf.mulesoft.com/desiredStatus: {}
+            f:rtf.mulesoft.com/replicas: {}
+            f:rtf.mulesoft.com/version: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:environment: {}
+            f:organization: {}
+            f:rtf.mulesoft.com/agentNamespace: {}
+            f:rtf.mulesoft.com/disableAmLogForwarding: {}
+            f:rtf.mulesoft.com/id: {}
+            f:rtf.mulesoft.com/version: {}
+            f:type: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:replicas: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:mulesoft.com/resources: {}
+              f:labels:
+                .: {}
+                f:am-org-id: {}
+                f:app: {}
+                f:environment: {}
+                f:name: {}
+                f:organization: {}
+                f:pod: {}
+                f:root-org-id: {}
+                f:rtf.mulesoft.com/disableAmLogForwarding: {}
+                f:rtf.mulesoft.com/generation: {}
+                f:rtf.mulesoft.com/id: {}
+                f:type: {}
+            f:spec:
+              f:affinity:
+                .: {}
+                f:podAntiAffinity:
+                  .: {}
+                  f:preferredDuringSchedulingIgnoredDuringExecution: {}
+              f:automountServiceAccountToken: {}
+              f:containers:
+                k:{"name":"anypoint-monitoring"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"APP_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"APP_REGION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CLUSTER_FLAVOR"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"DATA_PATH"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"DEPLOYMENT_ID"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ENV_ID"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"HTTPS_PROXY"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef: {}
+                    k:{"name":"HTTP_PROXY"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef: {}
+                    k:{"name":"INGEST_HOST"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"LOG_LOCATION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"MULE_BILLING_ENABLED"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"MULE_METERING_ENABLED"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"MULE_VERSION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NAMESPACE_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"NODE_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"ORG_ID"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"OTEL_AGENT_VERSION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"OTEL_EXPORTER_OTLP_LMETRICS_ENDPOINT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"OTEL_EXPORTER_OTLP_LOGS_ENDPOINT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"OTEL_EXPORTER_OTLP_METRICS_ENDPOINT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"OTEL_EXPORTER_OTLP_METRICS_INTERNAL_ENDPOINT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"OTEL_EXPORTER_OTLP_TRACES_ENDPOINT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"POD_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"PROXY_URL"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef: {}
+                    k:{"name":"RESOURCE_LIMIT_MEMORY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ROOT_ORG_ID"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"TARGET_ID"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:readOnlyRootFilesystem: {}
+                    f:runAsGroup: {}
+                    f:runAsUser: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/data/certs"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/mnt/overlay"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/opt/am/config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                k:{"name":"app"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"ANYPOINT_MONITORING_SCOPE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"APP_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CONF_PATH"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"DEPLOYMENT_ID"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ENV_ID"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"FILE_APPENDER_ENABLED"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"INFLUX_PUBLISH_HEAP_METRICS_DISABLED"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"MULE_SECURE_PROPERTIES"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef: {}
+                    k:{"name":"NAMESPACE_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"NODE_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"ORG_ID"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"POD_CPU_LIMIT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"POD_CPU_REQUEST"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"POD_MEM_LIMIT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"POD_MEM_REQUEST"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"POD_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"ROOT_ORG_ID"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"RTF_ID"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"TARGET_ID"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"USE_PROXY_PROPERTIES"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:envFrom: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:lifecycle:
+                    .: {}
+                    f:preStop:
+                      .: {}
+                      f:exec:
+                        .: {}
+                        f:command: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":5701,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                    k:{"containerPort":8081,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                    k:{"containerPort":8082,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:readinessProbe:
+                    .: {}
+                    f:exec:
+                      .: {}
+                      f:command: {}
+                    f:failureThreshold: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:privileged: {}
+                    f:readOnlyRootFilesystem: {}
+                    f:runAsGroup: {}
+                    f:runAsUser: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/license"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+                    k:{"mountPath":"/mnt/overlay"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/opt/mule/deployments/conf"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/tmp"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:enableServiceLinks: {}
+              f:imagePullSecrets:
+                .: {}
+                k:{"name":"rtf-pull-secret"}: {}
+              f:initContainers:
+                .: {}
+                k:{"name":"init"}:
+                  .: {}
+                  f:args: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:privileged: {}
+                    f:readOnlyRootFilesystem: {}
+                    f:runAsNonRoot: {}
+                    f:runAsUser: {}
+                    f:seccompProfile:
+                      .: {}
+                      f:type: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/etc/podinfo"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+                    k:{"mountPath":"/mnt/overlay"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:nodeSelector: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:runAsNonRoot: {}
+                f:seccompProfile:
+                  .: {}
+                  f:type: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:topologySpreadConstraints:
+                .: {}
+                k:{"topologyKey":"topology.kubernetes.io/zone","whenUnsatisfiable":"ScheduleAnyway"}:
+                  .: {}
+                  f:labelSelector: {}
+                  f:maxSkew: {}
+                  f:topologyKey: {}
+                  f:whenUnsatisfiable: {}
+              f:volumes:
+                .: {}
+                k:{"name":"data-certs"}:
+                  .: {}
+                  f:name: {}
+                  f:secret:
+                    .: {}
+                    f:defaultMode: {}
+                    f:secretName: {}
+                k:{"name":"mulelicense"}:
+                  .: {}
+                  f:name: {}
+                  f:secret:
+                    .: {}
+                    f:defaultMode: {}
+                    f:items: {}
+                    f:secretName: {}
+                k:{"name":"opt-am-config"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"opt-mule-deployments-conf"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"overlay"}:
+                  .: {}
+                  f:emptyDir: {}
+                  f:name: {}
+                k:{"name":"podinfo"}:
+                  .: {}
+                  f:downwardAPI:
+                    .: {}
+                    f:defaultMode: {}
+                    f:items: {}
+                  f:name: {}
+                k:{"name":"tmp"}:
+                  .: {}
+                  f:emptyDir: {}
+                  f:name: {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2024-09-06T18:27:26Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:updatedReplicas: {}
+      subresource: status
+    - manager: rtf
+      operation: Update
+      apiVersion: apps/v1
+      time: '2024-09-06T18:27:26Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:rtf.mulesoft.com/last-publish-hash: {}
+          f:labels:
+            f:rtf.mulesoft.com/status: {}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      rtf.mulesoft.com/id: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        am-org-id: 56c14f77-79ed-4de3-8313-d542ea9f232b
+        app: american-flights-api
+        environment: d37ea7f5-c415-44c0-8a37-55921066d716
+        name: american-flights-api
+        organization: 93bea448-1195-4081-8f7f-e21a7de64982
+        pod: mule-app
+        root-org-id: 56c14f77-79ed-4de3-8313-d542ea9f232b
+        rtf.mulesoft.com/disableAmLogForwarding: 'true'
+        rtf.mulesoft.com/generation: 717007719aa1e772a7317c8728d2fc8d
+        rtf.mulesoft.com/id: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+        type: MuleApplication
+      annotations:
+        mulesoft.com/resources: >-
+          [{"url":"https://configuration-resolver.prod.cloudhub.io/api/v1/deployments/b3dd9807-3a18-4a6b-9dc0-2cc1f70628da/assets/eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNdWxlU29mdCAtIEFNQyAtIERlcGxveWVyIiwiZ3JvdXBJZCI6IjkzYmVhNDQ4LTExOTUtNDA4MS04ZjdmLWUyMWE3ZGU2NDk4MiIsImNsYXNzaWZpZXIiOiJtdWxlLWFwcGxpY2F0aW9uIiwiYXJ0aWZhY3RJZCI6ImFtZXJpY2FuLWZsaWdodHMtYXBpIiwicGFja2FnaW5nIjoiamFyIiwiZXhjaGFuZ2VUeXBlIjoiYXBwIiwiZGVwbG95bWVudE5hbWUiOiJhbWVyaWNhbi1mbGlnaHRzLWFwaSIsInNvdXJjZSI6ImV4Y2hhbmdlIiwicmVmSWQiOiJhbWVyaWNhbi1mbGlnaHRzLWFwaSIsInZlcnNpb24iOiIxLjAuNSIsImF1ZCI6ImFlZDU0ZjBlLTdkYjktNGRkNy1hZTVkLWE0ZWUzNTFiMTc3Yi5NQy51cy1lYXN0LTEifQ.la85Ie0bp-MfDYISdb2fMeiE9FT0Oc6DbpFYd_-eF9PYaLzkEMLR51iVontdJ1lDTUCLGvv2Z1mkru_qdKQ4zKa6TriDO-3s6riOm-gZxrwxMGrYXyIAqwCeyk6k7uWcF3PHoD8tafcpZPMSqCEB5FxnrGjyNuuNxL9bNRhHK2zpjOD1xiR4n_K4uKJ-MJDcQ5S7vMriTqNwkEjz4H5zgBgjClKN7MCQYFQu9TT0APxalZHG5OMQRwQ1G9RGHDK9r5eR8UwNzQ7N7JUuE4gYpHIkL7EBUFc5BR5eXlfumsN4L6UUHcQSjhhPJ-EeLZ6vkN4ys4ghiOkNQ8iikhdZFA","destinationFile":"/opt/mule/deployments/american-flights-api.jar"}]
+    spec:
+      volumes:
+        - name: podinfo
+          downwardAPI:
+            items:
+              - path: annotations
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.annotations
+            defaultMode: 420
+        - name: overlay
+          emptyDir: {}
+        - name: data-certs
+          secret:
+            secretName: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da-0
+            defaultMode: 420
+        - name: opt-am-config
+          configMap:
+            name: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da-0
+            defaultMode: 420
+        - name: opt-mule-deployments-conf
+          configMap:
+            name: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da-1
+            defaultMode: 420
+        - name: tmp
+          emptyDir: {}
+        - name: mulelicense
+          secret:
+            secretName: rtf-muleruntime-license
+            items:
+              - key: '3'
+                path: muleLicenseKey.lic
+            defaultMode: 420
+      initContainers:
+        - name: init
+          image: rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-app-init:1.0.179
+          args:
+            - '--namespace'
+            - rtf
+          resources: {}
+          volumeMounts:
+            - name: podinfo
+              readOnly: true
+              mountPath: /etc/podinfo
+            - name: overlay
+              mountPath: /mnt/overlay
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            capabilities:
+              drop:
+                - ALL
+            privileged: false
+            runAsUser: 2020
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
+      containers:
+        - name: app
+          image: >-
+            rtf-runtime-registry.kprod.msap.io/mulesoft/poseidon-runtime-4.4.0:20240821-3
+          ports:
+            - name: http
+              containerPort: 8081
+              protocol: TCP
+            - name: https
+              containerPort: 8082
+              protocol: TCP
+            - name: hazelcast
+              containerPort: 5701
+              protocol: TCP
+          envFrom:
+            - secretRef:
+                name: custom-properties
+                optional: true
+            - secretRef:
+                name: env-vars-b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+                optional: true
+          env:
+            - name: APP_NAME
+              value: american-flights-api
+            - name: TARGET_ID
+              value: aed54f0e-7db9-4dd7-ae5d-a4ee351b177b
+            - name: DEPLOYMENT_ID
+              value: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+            - name: RTF_ID
+              value: aed54f0e-7db9-4dd7-ae5d-a4ee351b177b
+            - name: CONF_PATH
+              value: /opt/mule/deployments/conf/american-flights-api.yml
+            - name: POD_CPU_REQUEST
+              value: 20m
+            - name: POD_CPU_LIMIT
+              value: 1000m
+            - name: POD_MEM_REQUEST
+              value: 1000Mi
+            - name: POD_MEM_LIMIT
+              value: 1000Mi
+            - name: ANYPOINT_MONITORING_SCOPE
+              value: app
+            - name: NAMESPACE_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+            - name: ROOT_ORG_ID
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.labels['root-org-id']
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+            - name: ORG_ID
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.labels['organization']
+            - name: ENV_ID
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.labels['environment']
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: spec.nodeName
+            - name: MULE_SECURE_PROPERTIES
+              valueFrom:
+                secretKeyRef:
+                  name: secure-properties
+                  key: properties
+                  optional: true
+            - name: INFLUX_PUBLISH_HEAP_METRICS_DISABLED
+              value: 'true'
+            - name: USE_PROXY_PROPERTIES
+              value: 'false'
+            - name: FILE_APPENDER_ENABLED
+              value: 'true'
+          resources:
+            limits:
+              cpu: '1'
+              memory: 1000Mi
+            requests:
+              cpu: 20m
+              memory: 1000Mi
+          volumeMounts:
+            - name: overlay
+              mountPath: /mnt/overlay
+            - name: opt-mule-deployments-conf
+              mountPath: /opt/mule/deployments/conf
+            - name: tmp
+              mountPath: /tmp
+            - name: mulelicense
+              readOnly: true
+              mountPath: /license
+          readinessProbe:
+            exec:
+              command:
+                - /readiness-probe.sh
+            initialDelaySeconds: 10
+            timeoutSeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - sh
+                  - '-c'
+                  - sleep 5
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            capabilities:
+              drop:
+                - ALL
+            privileged: false
+            runAsUser: 2020
+            runAsGroup: 2020
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+        - name: anypoint-monitoring
+          image: >-
+            rtf-runtime-registry.kprod.msap.io/mulesoft/dias-anypoint-monitoring-sidecar:2.0.47
+          env:
+            - name: APP_NAME
+              value: american-flights-api
+            - name: TARGET_ID
+              value: aed54f0e-7db9-4dd7-ae5d-a4ee351b177b
+            - name: CLUSTER_FLAVOR
+              value: byok
+            - name: NAMESPACE_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+            - name: ROOT_ORG_ID
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.labels['root-org-id']
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+            - name: ORG_ID
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.labels['organization']
+            - name: ENV_ID
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.labels['environment']
+            - name: DEPLOYMENT_ID
+              value: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+            - name: APP_REGION
+              value: us-east-1
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: spec.nodeName
+            - name: LOG_LOCATION
+              value: /mnt/overlay/opt/mule/logs/_*metric.log
+            - name: DATA_PATH
+              value: /mnt/overlay/am-data
+            - name: PROXY_URL
+              valueFrom:
+                secretKeyRef:
+                  name: custom-properties
+                  key: MONITORING_PROXY
+                  optional: true
+            - name: HTTP_PROXY
+              valueFrom:
+                secretKeyRef:
+                  name: custom-properties
+                  key: HTTP_PROXY
+                  optional: true
+            - name: HTTPS_PROXY
+              valueFrom:
+                secretKeyRef:
+                  name: custom-properties
+                  key: HTTP_PROXY
+                  optional: true
+            - name: INGEST_HOST
+              value: dias-ingestor-router.us-east-1.prod.cloudhub.io:443
+            - name: MULE_BILLING_ENABLED
+              value: 'false'
+            - name: MULE_METERING_ENABLED
+              value: 'true'
+            - name: OTEL_AGENT_VERSION
+              value: 2.0.47
+            - name: OTEL_EXPORTER_OTLP_LMETRICS_ENDPOINT
+              value: https://us1.ingest.mulesoft.com/api/v2/lmetrics
+            - name: OTEL_EXPORTER_OTLP_LOGS_ENDPOINT
+              value: https://us1.ingest.mulesoft.com/api/v2/logs
+            - name: OTEL_EXPORTER_OTLP_METRICS_ENDPOINT
+              value: https://us1.ingest.mulesoft.com/api/v2/metrics
+            - name: OTEL_EXPORTER_OTLP_METRICS_INTERNAL_ENDPOINT
+              value: https://us1.ingest.mulesoft.com/api/v2/metrics
+            - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
+              value: https://us1.ingest.mulesoft.com/api/v2/traces
+            - name: RESOURCE_LIMIT_MEMORY
+              value: 150Mi
+            - name: MULE_VERSION
+              value: 4.4.0:20240821-3
+          resources:
+            limits:
+              cpu: 300m
+              memory: 150Mi
+            requests:
+              cpu: 50m
+              memory: 150Mi
+          volumeMounts:
+            - name: overlay
+              mountPath: /mnt/overlay
+            - name: data-certs
+              mountPath: /data/certs
+            - name: opt-am-config
+              mountPath: /opt/am/config
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: FallbackToLogsOnError
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            capabilities:
+              drop:
+                - ALL
+            runAsUser: 2001
+            runAsGroup: 2000
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 300
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        app: mule-app
+        kubernetes.io/arch: amd64
+        kubernetes.io/os: linux
+      serviceAccountName: american-flights-api
+      serviceAccount: american-flights-api
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      imagePullSecrets:
+        - name: rtf-pull-secret
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: rtf.mulesoft.com/id
+                      operator: In
+                      values:
+                        - b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+                    - key: rtf.mulesoft.com/generation
+                      operator: In
+                      values:
+                        - 717007719aa1e772a7317c8728d2fc8d
+                topologyKey: kubernetes.io/hostname
+      schedulerName: default-scheduler
+      enableServiceLinks: false
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              rtf.mulesoft.com/generation: 717007719aa1e772a7317c8728d2fc8d
+              rtf.mulesoft.com/id: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  revisionHistoryLimit: 1
+  progressDeadlineSeconds: 720
+status:
+  observedGeneration: 3
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  conditions:
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2024-09-06T18:27:15Z'
+      lastTransitionTime: '2024-09-06T18:27:15Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2024-09-06T18:27:15Z'
+      lastTransitionTime: '2024-09-06T18:26:15Z'
+      reason: NewReplicaSetAvailable
+      message: >-
+        ReplicaSet "american-flights-api-7cd69c5988" has successfully
+        progressed.
