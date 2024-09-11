@@ -8,7 +8,7 @@ metadata:
   generation: 1
   creationTimestamp: '2024-08-16T17:29:34Z'
   labels:
-    app.kubernetes.io/instance: runtime-fabric
+    app.kubernetes.io/instance: resource-cache-nonpd
     app.kubernetes.io/managed-by: Helm
     rtf.mulesoft.com/agentNamespace: rtf
     rtf.mulesoft.com/component: agent
