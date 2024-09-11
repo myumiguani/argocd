@@ -1,0 +1,389 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: resource-cache
+  namespace: rtf
+  uid: d8f0cdb5-7ce2-4aae-979f-7e0c7247b4c7
+  resourceVersion: '233451624'
+  generation: 1
+  creationTimestamp: '2024-08-16T17:29:34Z'
+  labels:
+    app.kubernetes.io/instance: runtime-fabric
+    app.kubernetes.io/managed-by: Helm
+    rtf.mulesoft.com/agentNamespace: rtf
+    rtf.mulesoft.com/component: agent
+    rtf.mulesoft.com/report-status: 'true'
+  annotations:
+    deployment.kubernetes.io/revision: '1'
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"deployment.kubernetes.io/revision":"4","meta.helm.sh/release-name":"runtime-fabric","meta.helm.sh/release-namespace":"rtf","rtf.mulesoft.com/tags":"static_assets"},"creationTimestamp":"2024-01-31T20:45:12Z","generation":4,"labels":{"app.kubernetes.io/instance":"runtime-fabric","app.kubernetes.io/managed-by":"Helm","rtf.mulesoft.com/agentNamespace":"rtf","rtf.mulesoft.com/component":"agent","rtf.mulesoft.com/report-status":"true"},"name":"resource-cache","namespace":"rtf","resourceVersion":"111464424","uid":"be5f7e7b-9366-4917-9729-743b6d2719c0"},"spec":{"progressDeadlineSeconds":600,"replicas":1,"revisionHistoryLimit":1,"selector":{"matchLabels":{"app":"resource-cache"}},"strategy":{"rollingUpdate":{"maxSurge":1,"maxUnavailable":0},"type":"RollingUpdate"},"template":{"metadata":{"annotations":{"checksum/config":"5c9997dd658f0d51a56f62a7a73e944269658d888f94b283751b9f09b0d76549"},"creationTimestamp":null,"labels":{"app":"resource-cache"}},"spec":{"automountServiceAccountToken":false,"containers":[{"image":"rtf-runtime-registry.kprod.msap.io/mulesoft/base-image-nginx-1.21.6:1.2.152","imagePullPolicy":"IfNotPresent","name":"nginx","ports":[{"containerPort":8010,"protocol":"TCP"}],"resources":{"limits":{"cpu":"500m","memory":"250Mi"},"requests":{"cpu":"100m","memory":"50Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"readOnlyRootFilesystem":true},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/etc/nginx","name":"nginx-config"},{"mountPath":"/tmp/nginx","name":"nginx-tmp"}]},{"args":["/app"],"env":[{"name":"HTTP_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_PROXY","name":"custom-properties","optional":true}}},{"name":"HTTPS_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_PROXY","name":"custom-properties","optional":true}}},{"name":"NO_PROXY","valueFrom":{"secretKeyRef":{"key":"HTTP_NO_PROXY","name":"custom-properties","optional":true}}},{"name":"OVERRIDE_HOST","valueFrom":{"secretKeyRef":{"key":"CONFIGRESOLVER_HOST","name":"generated-properties","optional":true}}}],"image":"rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-resource-fetcher:1.0.183","imagePullPolicy":"IfNotPresent","name":"fetcher","ports":[{"containerPort":8011,"protocol":"TCP"}],"resources":{"limits":{"cpu":"100m","memory":"200Mi"},"requests":{"cpu":"50m","memory":"50Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"readOnlyRootFilesystem":true,"runAsGroup":2000,"runAsUser":2020},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/opt/app/ssl","name":"agent-keystore-volume"}]}],"dnsPolicy":"ClusterFirst","nodeSelector":{"kubernetes.io/arch":"amd64","kubernetes.io/os":"linux"},"priorityClassName":"rtf-components-high-priority","restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{"runAsNonRoot":true,"seccompProfile":{"type":"RuntimeDefault"}},"serviceAccount":"resource-cache","serviceAccountName":"resource-cache","terminationGracePeriodSeconds":30,"volumes":[{"configMap":{"defaultMode":420,"name":"resource-cache-config"},"name":"nginx-config"},{"emptyDir":{},"name":"nginx-tmp"},{"name":"agent-keystore-volume","secret":{"defaultMode":420,"secretName":"agent-keystore"}}]}}},"status":{"conditions":[{"lastTransitionTime":"2024-01-31T20:55:46Z","lastUpdateTime":"2024-07-08T18:15:30Z","message":"ReplicaSet
+      \"resource-cache-966d49884\" has successfully
+      progressed.","reason":"NewReplicaSetAvailable","status":"True","type":"Progressing"},{"lastTransitionTime":"2024-08-09T20:50:09Z","lastUpdateTime":"2024-08-09T20:50:09Z","message":"Deployment
+      does not have minimum
+      availability.","reason":"MinimumReplicasUnavailable","status":"False","type":"Available"}],"observedGeneration":4,"replicas":1,"unavailableReplicas":1,"updatedReplicas":1}}
+    meta.helm.sh/release-name: runtime-fabric
+    meta.helm.sh/release-namespace: rtf
+    rtf.mulesoft.com/tags: static_assets
+  managedFields:
+    - manager: kubectl-client-side-apply
+      operation: Update
+      apiVersion: apps/v1
+      time: '2024-08-16T17:29:34Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:rtf.mulesoft.com/tags: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:rtf.mulesoft.com/agentNamespace: {}
+            f:rtf.mulesoft.com/component: {}
+            f:rtf.mulesoft.com/report-status: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:replicas: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:checksum/config: {}
+              f:labels:
+                .: {}
+                f:app: {}
+            f:spec:
+              f:automountServiceAccountToken: {}
+              f:containers:
+                k:{"name":"fetcher"}:
+                  .: {}
+                  f:args: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"HTTPS_PROXY"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef: {}
+                    k:{"name":"HTTP_PROXY"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef: {}
+                    k:{"name":"NO_PROXY"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef: {}
+                    k:{"name":"OVERRIDE_HOST"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8011,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:protocol: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:readOnlyRootFilesystem: {}
+                    f:runAsGroup: {}
+                    f:runAsUser: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/opt/app/ssl"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                k:{"name":"nginx"}:
+                  .: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8010,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:protocol: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:readOnlyRootFilesystem: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/etc/nginx"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/tmp/nginx"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:nodeSelector: {}
+              f:priorityClassName: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:runAsNonRoot: {}
+                f:seccompProfile:
+                  .: {}
+                  f:type: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"agent-keystore-volume"}:
+                  .: {}
+                  f:name: {}
+                  f:secret:
+                    .: {}
+                    f:defaultMode: {}
+                    f:secretName: {}
+                k:{"name":"nginx-config"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"nginx-tmp"}:
+                  .: {}
+                  f:emptyDir: {}
+                  f:name: {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2024-09-11T01:34:24Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:updatedReplicas: {}
+      subresource: status
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resource-cache
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: resource-cache
+      annotations:
+        checksum/config: 5c9997dd658f0d51a56f62a7a73e944269658d888f94b283751b9f09b0d76549
+    spec:
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: resource-cache-config
+            defaultMode: 420
+        - name: nginx-tmp
+          emptyDir: {}
+        - name: agent-keystore-volume
+          secret:
+            secretName: agent-keystore
+            defaultMode: 420
+      containers:
+        - name: nginx
+          image: >-
+            rtf-runtime-registry.kprod.msap.io/mulesoft/base-image-nginx-1.21.6:1.2.152
+          ports:
+            - containerPort: 8010
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 500m
+              memory: 250Mi
+            requests:
+              cpu: 100m
+              memory: 50Mi
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx
+            - name: nginx-tmp
+              mountPath: /tmp/nginx
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            capabilities:
+              drop:
+                - ALL
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+        - name: fetcher
+          image: >-
+            rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-resource-fetcher:1.0.183
+          args:
+            - /app
+          ports:
+            - containerPort: 8011
+              protocol: TCP
+          env:
+            - name: HTTP_PROXY
+              valueFrom:
+                secretKeyRef:
+                  name: custom-properties
+                  key: HTTP_PROXY
+                  optional: true
+            - name: HTTPS_PROXY
+              valueFrom:
+                secretKeyRef:
+                  name: custom-properties
+                  key: HTTP_PROXY
+                  optional: true
+            - name: NO_PROXY
+              valueFrom:
+                secretKeyRef:
+                  name: custom-properties
+                  key: HTTP_NO_PROXY
+                  optional: true
+            - name: OVERRIDE_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: generated-properties
+                  key: CONFIGRESOLVER_HOST
+                  optional: true
+          resources:
+            limits:
+              cpu: 100m
+              memory: 200Mi
+            requests:
+              cpu: 50m
+              memory: 50Mi
+          volumeMounts:
+            - name: agent-keystore-volume
+              mountPath: /opt/app/ssl
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            capabilities:
+              drop:
+                - ALL
+            runAsUser: 2020
+            runAsGroup: 2000
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        kubernetes.io/arch: amd64
+        kubernetes.io/os: linux
+      serviceAccountName: resource-cache
+      serviceAccount: resource-cache
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      schedulerName: default-scheduler
+      priorityClassName: rtf-components-high-priority
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  revisionHistoryLimit: 1
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 1
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  conditions:
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2024-08-16T17:29:36Z'
+      lastTransitionTime: '2024-08-16T17:29:34Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "resource-cache-6c47765744" has successfully progressed.
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2024-09-11T01:34:24Z'
+      lastTransitionTime: '2024-09-11T01:34:24Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
