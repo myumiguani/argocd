@@ -3,32 +3,33 @@ apiVersion: apps/v1
 metadata:
   name: american-flights-api
   namespace: c4e-sandbox
-  uid: 5836352a-fc6a-45c6-a4a0-84e8f94c69f6
-  resourceVersion: '235052211'
-  creationTimestamp: '2024-09-12T19:37:20Z'
+  uid: a925a7b9-ad3f-43a8-b3a7-52cb376e9143
+  resourceVersion: '235062730'
+  creationTimestamp: '2024-09-12T19:54:52Z'
   labels:
+    app.kubernetes.io/instance: poc
     app.kubernetes.io/managed-by: Helm
     environment: d37ea7f5-c415-44c0-8a37-55921066d716
     organization: 93bea448-1195-4081-8f7f-e21a7de64982
     rtf.mulesoft.com/agentNamespace: rtf
     rtf.mulesoft.com/disableAmLogForwarding: 'true'
-    rtf.mulesoft.com/id: daf33669-ecc2-49e8-9fb0-3f122628ee3f
+    rtf.mulesoft.com/id: e6b1e624-c649-4ed8-ba95-30102019b57f
     rtf.mulesoft.com/status: READY
-    rtf.mulesoft.com/version: 8029db2e-57b8-4b96-a9af-10d7e7085163
+    rtf.mulesoft.com/version: 43ac4750-4e16-4f47-aec3-f653f2ceaa6b
     type: MuleApplication
   annotations:
     deployment.kubernetes.io/revision: '1'
     meta.helm.sh/release-name: american-flights-api
     meta.helm.sh/release-namespace: c4e-sandbox
     rtf.mulesoft.com/desiredStatus: STARTED
-    rtf.mulesoft.com/last-publish-hash: 7f4ffc50dacd15356a1d5c47698e1af0
+    rtf.mulesoft.com/last-publish-hash: 6742734b0bc85ed16123686243952d91
     rtf.mulesoft.com/replicas: '1'
-    rtf.mulesoft.com/version: 8029db2e-57b8-4b96-a9af-10d7e7085163
+    rtf.mulesoft.com/version: 43ac4750-4e16-4f47-aec3-f653f2ceaa6b
 spec:
   replicas: 1
   selector:
     matchLabels:
-      rtf.mulesoft.com/id: daf33669-ecc2-49e8-9fb0-3f122628ee3f
+      rtf.mulesoft.com/id: e6b1e624-c649-4ed8-ba95-30102019b57f
   template:
     metadata:
       creationTimestamp: null
@@ -42,11 +43,11 @@ spec:
         root-org-id: 56c14f77-79ed-4de3-8313-d542ea9f232b
         rtf.mulesoft.com/disableAmLogForwarding: 'true'
         rtf.mulesoft.com/generation: 717007719aa1e772a7317c8728d2fc8d
-        rtf.mulesoft.com/id: daf33669-ecc2-49e8-9fb0-3f122628ee3f
+        rtf.mulesoft.com/id: e6b1e624-c649-4ed8-ba95-30102019b57f
         type: MuleApplication
       annotations:
         mulesoft.com/resources: >-
-          [{"url":"https://configuration-resolver.prod.cloudhub.io/api/v1/deployments/daf33669-ecc2-49e8-9fb0-3f122628ee3f/assets/eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNdWxlU29mdCAtIEFNQyAtIERlcGxveWVyIiwiZ3JvdXBJZCI6IjkzYmVhNDQ4LTExOTUtNDA4MS04ZjdmLWUyMWE3ZGU2NDk4MiIsImNsYXNzaWZpZXIiOiJtdWxlLWFwcGxpY2F0aW9uIiwiYXJ0aWZhY3RJZCI6ImFtZXJpY2FuLWZsaWdodHMtYXBpIiwicGFja2FnaW5nIjoiamFyIiwiZXhjaGFuZ2VUeXBlIjoiYXBwIiwiZGVwbG95bWVudE5hbWUiOiJhbWVyaWNhbi1mbGlnaHRzLWFwaSIsInNvdXJjZSI6ImV4Y2hhbmdlIiwicmVmSWQiOiJhbWVyaWNhbi1mbGlnaHRzLWFwaSIsInZlcnNpb24iOiIxLjEuMSIsImF1ZCI6ImFlZDU0ZjBlLTdkYjktNGRkNy1hZTVkLWE0ZWUzNTFiMTc3Yi5NQy51cy1lYXN0LTEifQ.XjDUXV4NXuPT5PR0F5Ab28EVvIIhW0ZFP44dEwZM2VSBbRaVsxsCpJqvifXeRQIvpNiMnxyumyMba9U8YBBioYIqxhcg3a128MoToTn9jaTXxDcbjk71cKx_SNIhvGz-8jBZ9UYCjfV7-Z7PtZm8DVNKxyub60kpXBosavxv-CQPxC58vn4Fz2b-9EUx75eiqFSN-mWT7EV8AYa4mmU5_0x51NaD7lURvLcme8ziGSCDdXPBHgIBKEKfgc4LrIxx0nbNmpv2unD1kQW8ySUQYqfYE1G-VC2wHfpRLpvDa8UDPuAI8FEjDmpyma3TcVI_yocyzPNXiNQobiWuxTMDXg","destinationFile":"/opt/mule/deployments/american-flights-api.jar"}]
+          [{"url":"https://configuration-resolver.prod.cloudhub.io/api/v1/deployments/e6b1e624-c649-4ed8-ba95-30102019b57f/assets/eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNdWxlU29mdCAtIEFNQyAtIERlcGxveWVyIiwiZ3JvdXBJZCI6IjkzYmVhNDQ4LTExOTUtNDA4MS04ZjdmLWUyMWE3ZGU2NDk4MiIsImNsYXNzaWZpZXIiOiJtdWxlLWFwcGxpY2F0aW9uIiwiYXJ0aWZhY3RJZCI6ImFtZXJpY2FuLWZsaWdodHMtYXBpIiwicGFja2FnaW5nIjoiamFyIiwiZXhjaGFuZ2VUeXBlIjoiYXBwIiwiZGVwbG95bWVudE5hbWUiOiJhbWVyaWNhbi1mbGlnaHRzLWFwaSIsInNvdXJjZSI6ImV4Y2hhbmdlIiwicmVmSWQiOiJhbWVyaWNhbi1mbGlnaHRzLWFwaSIsInZlcnNpb24iOiIxLjEuMiIsImF1ZCI6ImFlZDU0ZjBlLTdkYjktNGRkNy1hZTVkLWE0ZWUzNTFiMTc3Yi5NQy51cy1lYXN0LTEifQ.mCHaKffns2GUds5NadwSSlj1gE-m3bpQ2iaq6eIv9fg2tFjXCr8zZ3SFG7v2pqBMG0JQJNn45coAzcPNzor-EypfvxkptBKu3mya5q380XSQJAdq5v7n5K90AzLlWD_E5_p2b57oUyuCZEyPZqlw8AwiOcvKYxvQuqdB0G74FEUMHm9X6Vvw-sh1LrbqV4tfQcdz4YzvtBTj-jZvHl2vbEkw0Ypfi5MEMIHRRKt8ft2Wdjdo9mHoiVaCgMQYrR2Cl1UDoPmdOn9HBiG3y4vk2jNmG5H_2r_86UGgMZRaOtc3JBpOh1QfyUimoXam9w2KA4T6Qo-tJnaiYUXjPT_QDg","destinationFile":"/opt/mule/deployments/american-flights-api.jar"}]
     spec:
       volumes:
         - name: podinfo
@@ -61,15 +62,15 @@ spec:
           emptyDir: {}
         - name: data-certs
           secret:
-            secretName: daf33669-ecc2-49e8-9fb0-3f122628ee3f-0
+            secretName: e6b1e624-c649-4ed8-ba95-30102019b57f-0
             defaultMode: 420
         - name: opt-am-config
           configMap:
-            name: daf33669-ecc2-49e8-9fb0-3f122628ee3f-0
+            name: e6b1e624-c649-4ed8-ba95-30102019b57f-0
             defaultMode: 420
         - name: opt-mule-deployments-conf
           configMap:
-            name: daf33669-ecc2-49e8-9fb0-3f122628ee3f-1
+            name: e6b1e624-c649-4ed8-ba95-30102019b57f-1
             defaultMode: 420
         - name: tmp
           emptyDir: {}
@@ -126,7 +127,7 @@ spec:
                 name: custom-properties
                 optional: true
             - secretRef:
-                name: env-vars-daf33669-ecc2-49e8-9fb0-3f122628ee3f
+                name: env-vars-e6b1e624-c649-4ed8-ba95-30102019b57f
                 optional: true
           env:
             - name: APP_NAME
@@ -134,7 +135,7 @@ spec:
             - name: TARGET_ID
               value: aed54f0e-7db9-4dd7-ae5d-a4ee351b177b
             - name: DEPLOYMENT_ID
-              value: daf33669-ecc2-49e8-9fb0-3f122628ee3f
+              value: e6b1e624-c649-4ed8-ba95-30102019b57f
             - name: RTF_ID
               value: aed54f0e-7db9-4dd7-ae5d-a4ee351b177b
             - name: CONF_PATH
@@ -272,7 +273,7 @@ spec:
                   apiVersion: v1
                   fieldPath: metadata.labels['environment']
             - name: DEPLOYMENT_ID
-              value: daf33669-ecc2-49e8-9fb0-3f122628ee3f
+              value: e6b1e624-c649-4ed8-ba95-30102019b57f
             - name: APP_REGION
               value: us-east-1
             - name: NODE_NAME
@@ -375,7 +376,7 @@ spec:
                     - key: rtf.mulesoft.com/id
                       operator: In
                       values:
-                        - daf33669-ecc2-49e8-9fb0-3f122628ee3f
+                        - e6b1e624-c649-4ed8-ba95-30102019b57f
                     - key: rtf.mulesoft.com/generation
                       operator: In
                       values:
@@ -390,7 +391,7 @@ spec:
           labelSelector:
             matchLabels:
               rtf.mulesoft.com/generation: 717007719aa1e772a7317c8728d2fc8d
-              rtf.mulesoft.com/id: daf33669-ecc2-49e8-9fb0-3f122628ee3f
+              rtf.mulesoft.com/id: e6b1e624-c649-4ed8-ba95-30102019b57f
   strategy:
     type: RollingUpdate
     rollingUpdate:
