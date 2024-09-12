@@ -3,33 +3,33 @@ apiVersion: apps/v1
 metadata:
   name: american-flights-api
   namespace: c4e-sandbox
-  uid: d23d38ab-b90d-4932-9544-30cb0f6f1872
-  resourceVersion: '229749332'
+  uid: f1e93f4e-2416-4824-8a20-c9a3293b239e
+  resourceVersion: '234998760'
   generation: 3
-  creationTimestamp: '2024-09-06T18:26:15Z'
+  creationTimestamp: '2024-09-12T18:08:01Z'
   labels:
     app.kubernetes.io/managed-by: Helm
     environment: d37ea7f5-c415-44c0-8a37-55921066d716
     organization: 93bea448-1195-4081-8f7f-e21a7de64982
     rtf.mulesoft.com/agentNamespace: rtf
     rtf.mulesoft.com/disableAmLogForwarding: 'true'
-    rtf.mulesoft.com/id: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+    rtf.mulesoft.com/id: 8a240c5a-9450-4cf2-b5a9-2ec6743fa58e
     rtf.mulesoft.com/status: READY
-    rtf.mulesoft.com/version: 267ef8c0-266d-453e-8e88-de98f398dfbf
+    rtf.mulesoft.com/version: ec067a2d-a561-4066-8d4d-6ad44fe3c523
     type: MuleApplication
   annotations:
     deployment.kubernetes.io/revision: '1'
     meta.helm.sh/release-name: american-flights-api
     meta.helm.sh/release-namespace: c4e-sandbox
     rtf.mulesoft.com/desiredStatus: STARTED
-    rtf.mulesoft.com/last-publish-hash: 3eb3aadd45d0151b1715834ca88f92ad
+    rtf.mulesoft.com/last-publish-hash: 549e0b6fc6705db56223c88ec1de71de
     rtf.mulesoft.com/replicas: '1'
-    rtf.mulesoft.com/version: 267ef8c0-266d-453e-8e88-de98f398dfbf
+    rtf.mulesoft.com/version: ec067a2d-a561-4066-8d4d-6ad44fe3c523
   managedFields:
     - manager: rtfd
       operation: Update
       apiVersion: apps/v1
-      time: '2024-09-06T18:26:15Z'
+      time: '2024-09-12T18:08:01Z'
       fieldsType: FieldsV1
       fieldsV1:
         f:metadata:
@@ -541,7 +541,7 @@ metadata:
     - manager: kube-controller-manager
       operation: Update
       apiVersion: apps/v1
-      time: '2024-09-06T18:27:26Z'
+      time: '2024-09-12T18:08:52Z'
       fieldsType: FieldsV1
       fieldsV1:
         f:metadata:
@@ -575,7 +575,7 @@ metadata:
     - manager: rtf
       operation: Update
       apiVersion: apps/v1
-      time: '2024-09-06T18:27:26Z'
+      time: '2024-09-12T18:08:52Z'
       fieldsType: FieldsV1
       fieldsV1:
         f:metadata:
@@ -587,7 +587,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      rtf.mulesoft.com/id: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+      rtf.mulesoft.com/id: 8a240c5a-9450-4cf2-b5a9-2ec6743fa58e
   template:
     metadata:
       creationTimestamp: null
@@ -601,11 +601,11 @@ spec:
         root-org-id: 56c14f77-79ed-4de3-8313-d542ea9f232b
         rtf.mulesoft.com/disableAmLogForwarding: 'true'
         rtf.mulesoft.com/generation: 717007719aa1e772a7317c8728d2fc8d
-        rtf.mulesoft.com/id: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+        rtf.mulesoft.com/id: 8a240c5a-9450-4cf2-b5a9-2ec6743fa58e
         type: MuleApplication
       annotations:
         mulesoft.com/resources: >-
-          [{"url":"https://configuration-resolver.prod.cloudhub.io/api/v1/deployments/b3dd9807-3a18-4a6b-9dc0-2cc1f70628da/assets/eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNdWxlU29mdCAtIEFNQyAtIERlcGxveWVyIiwiZ3JvdXBJZCI6IjkzYmVhNDQ4LTExOTUtNDA4MS04ZjdmLWUyMWE3ZGU2NDk4MiIsImNsYXNzaWZpZXIiOiJtdWxlLWFwcGxpY2F0aW9uIiwiYXJ0aWZhY3RJZCI6ImFtZXJpY2FuLWZsaWdodHMtYXBpIiwicGFja2FnaW5nIjoiamFyIiwiZXhjaGFuZ2VUeXBlIjoiYXBwIiwiZGVwbG95bWVudE5hbWUiOiJhbWVyaWNhbi1mbGlnaHRzLWFwaSIsInNvdXJjZSI6ImV4Y2hhbmdlIiwicmVmSWQiOiJhbWVyaWNhbi1mbGlnaHRzLWFwaSIsInZlcnNpb24iOiIxLjAuNSIsImF1ZCI6ImFlZDU0ZjBlLTdkYjktNGRkNy1hZTVkLWE0ZWUzNTFiMTc3Yi5NQy51cy1lYXN0LTEifQ.la85Ie0bp-MfDYISdb2fMeiE9FT0Oc6DbpFYd_-eF9PYaLzkEMLR51iVontdJ1lDTUCLGvv2Z1mkru_qdKQ4zKa6TriDO-3s6riOm-gZxrwxMGrYXyIAqwCeyk6k7uWcF3PHoD8tafcpZPMSqCEB5FxnrGjyNuuNxL9bNRhHK2zpjOD1xiR4n_K4uKJ-MJDcQ5S7vMriTqNwkEjz4H5zgBgjClKN7MCQYFQu9TT0APxalZHG5OMQRwQ1G9RGHDK9r5eR8UwNzQ7N7JUuE4gYpHIkL7EBUFc5BR5eXlfumsN4L6UUHcQSjhhPJ-EeLZ6vkN4ys4ghiOkNQ8iikhdZFA","destinationFile":"/opt/mule/deployments/american-flights-api.jar"}]
+          [{"url":"https://configuration-resolver.prod.cloudhub.io/api/v1/deployments/8a240c5a-9450-4cf2-b5a9-2ec6743fa58e/assets/eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNdWxlU29mdCAtIEFNQyAtIERlcGxveWVyIiwiZ3JvdXBJZCI6IjkzYmVhNDQ4LTExOTUtNDA4MS04ZjdmLWUyMWE3ZGU2NDk4MiIsImNsYXNzaWZpZXIiOiJtdWxlLWFwcGxpY2F0aW9uIiwiYXJ0aWZhY3RJZCI6ImFtZXJpY2FuLWZsaWdodHMtYXBpIiwicGFja2FnaW5nIjoiamFyIiwiZXhjaGFuZ2VUeXBlIjoiYXBwIiwiZGVwbG95bWVudE5hbWUiOiJhbWVyaWNhbi1mbGlnaHRzLWFwaSIsInNvdXJjZSI6ImV4Y2hhbmdlIiwicmVmSWQiOiJhbWVyaWNhbi1mbGlnaHRzLWFwaSIsInZlcnNpb24iOiIxLjAuNyIsImF1ZCI6ImFlZDU0ZjBlLTdkYjktNGRkNy1hZTVkLWE0ZWUzNTFiMTc3Yi5NQy51cy1lYXN0LTEifQ.QXpupnvMdFeqRhSTWLbhLaiEqX7uiYmlafF0YwdT-9Sj2Jr6StC55fpu-pp7I6yT0Ktyzw9SeGavkOPwJKQDc7MauAfPioav_nl3ZS52Pxvz7W1B1byDD1qnafOj3McFVga8150etbZ-MUhwBhhGGtLQJCWoDuz8SqyAGFURZVZOWqrg4G_pPl_Ziim9i7qAvmBFtHotgP8eDbqqlQp9juuZX0nnMtujT4hYN5cADHI-ZXeDp5Ld61BUvjrcyQZXCxaO1E45khM_nE-b0nSnS9-owmpaaAxrt6zV04ceftekL1tA94ARI0DyTDvbe_636gHD6MPjlpYnpcpxEBgi6A","destinationFile":"/opt/mule/deployments/american-flights-api.jar"}]
     spec:
       volumes:
         - name: podinfo
@@ -620,15 +620,15 @@ spec:
           emptyDir: {}
         - name: data-certs
           secret:
-            secretName: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da-0
+            secretName: 8a240c5a-9450-4cf2-b5a9-2ec6743fa58e-0
             defaultMode: 420
         - name: opt-am-config
           configMap:
-            name: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da-0
+            name: 8a240c5a-9450-4cf2-b5a9-2ec6743fa58e-0
             defaultMode: 420
         - name: opt-mule-deployments-conf
           configMap:
-            name: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da-1
+            name: 8a240c5a-9450-4cf2-b5a9-2ec6743fa58e-1
             defaultMode: 420
         - name: tmp
           emptyDir: {}
@@ -685,7 +685,7 @@ spec:
                 name: custom-properties
                 optional: true
             - secretRef:
-                name: env-vars-b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+                name: env-vars-8a240c5a-9450-4cf2-b5a9-2ec6743fa58e
                 optional: true
           env:
             - name: APP_NAME
@@ -693,7 +693,7 @@ spec:
             - name: TARGET_ID
               value: aed54f0e-7db9-4dd7-ae5d-a4ee351b177b
             - name: DEPLOYMENT_ID
-              value: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+              value: 8a240c5a-9450-4cf2-b5a9-2ec6743fa58e
             - name: RTF_ID
               value: aed54f0e-7db9-4dd7-ae5d-a4ee351b177b
             - name: CONF_PATH
@@ -831,7 +831,7 @@ spec:
                   apiVersion: v1
                   fieldPath: metadata.labels['environment']
             - name: DEPLOYMENT_ID
-              value: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+              value: 8a240c5a-9450-4cf2-b5a9-2ec6743fa58e
             - name: APP_REGION
               value: us-east-1
             - name: NODE_NAME
@@ -934,7 +934,7 @@ spec:
                     - key: rtf.mulesoft.com/id
                       operator: In
                       values:
-                        - b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+                        - 8a240c5a-9450-4cf2-b5a9-2ec6743fa58e
                     - key: rtf.mulesoft.com/generation
                       operator: In
                       values:
@@ -949,7 +949,7 @@ spec:
           labelSelector:
             matchLabels:
               rtf.mulesoft.com/generation: 717007719aa1e772a7317c8728d2fc8d
-              rtf.mulesoft.com/id: b3dd9807-3a18-4a6b-9dc0-2cc1f70628da
+              rtf.mulesoft.com/id: 8a240c5a-9450-4cf2-b5a9-2ec6743fa58e
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -966,15 +966,15 @@ status:
   conditions:
     - type: Available
       status: 'True'
-      lastUpdateTime: '2024-09-06T18:27:15Z'
-      lastTransitionTime: '2024-09-06T18:27:15Z'
+      lastUpdateTime: '2024-09-12T18:08:42Z'
+      lastTransitionTime: '2024-09-12T18:08:42Z'
       reason: MinimumReplicasAvailable
       message: Deployment has minimum availability.
     - type: Progressing
       status: 'True'
-      lastUpdateTime: '2024-09-06T18:27:15Z'
-      lastTransitionTime: '2024-09-06T18:26:15Z'
+      lastUpdateTime: '2024-09-12T18:08:42Z'
+      lastTransitionTime: '2024-09-12T18:08:01Z'
       reason: NewReplicaSetAvailable
       message: >-
-        ReplicaSet "american-flights-api-7cd69c5988" has successfully
+        ReplicaSet "american-flights-api-5dcf9589b5" has successfully
         progressed.
