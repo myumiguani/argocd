@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>93bea448-1195-4081-8f7f-e21a7de64982</groupId>
     <artifactId>american-flights-api</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
     <packaging>mule-application</packaging>
     <name>american-flights-api</name>
     <properties>
