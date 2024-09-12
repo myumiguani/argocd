@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: american-flights-api
+  name: american-flights-apis
   namespace: c4e-sandbox
   uid: f1e93f4e-2416-4824-8a20-c9a3293b239e
   resourceVersion: '234998760'
