@@ -957,24 +957,3 @@ spec:
       maxSurge: 1
   revisionHistoryLimit: 1
   progressDeadlineSeconds: 720
-status:
-  observedGeneration: 3
-  replicas: 1
-  updatedReplicas: 1
-  readyReplicas: 1
-  availableReplicas: 1
-  conditions:
-    - type: Available
-      status: 'True'
-      lastUpdateTime: '2024-09-12T18:36:18Z'
-      lastTransitionTime: '2024-09-12T18:36:18Z'
-      reason: MinimumReplicasAvailable
-      message: Deployment has minimum availability.
-    - type: Progressing
-      status: 'True'
-      lastUpdateTime: '2024-09-12T18:36:18Z'
-      lastTransitionTime: '2024-09-12T18:35:38Z'
-      reason: NewReplicaSetAvailable
-      message: >-
-        ReplicaSet "american-flights-api-7dfcb758bd" has successfully
-        progressed.
