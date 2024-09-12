@@ -5,7 +5,6 @@ metadata:
   namespace: c4e-sandbox
   uid: 6fcf8477-d2cf-4582-8280-ebb0e053ec0b
   resourceVersion: '235015518'
-  generation: 3
   creationTimestamp: '2024-09-12T18:35:38Z'
   labels:
     app.kubernetes.io/managed-by: Helm
