@@ -1,15 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    meta.helm.sh/release-name: american-flights-api
-    meta.helm.sh/release-namespace: c4e-sandbox
-  labels:
-    app.kubernetes.io/managed-by: Helm
-    environment: d37ea7f5-c415-44c0-8a37-55921066d716
-    organization: 93bea448-1195-4081-8f7f-e21a7de64982
-    type: MuleApplication
-  name: american-flights-api
+  name: american-flights-api-2
   namespace: c4e-sandbox
 spec:
   progressDeadlineSeconds: 720
