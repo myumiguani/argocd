@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    deployment.kubernetes.io/revision: "1"
     meta.helm.sh/release-name: american-flights-api
     meta.helm.sh/release-namespace: c4e-sandbox
   labels:
