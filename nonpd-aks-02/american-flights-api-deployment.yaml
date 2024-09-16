@@ -1,330 +1,250 @@
-kind: Deployment
-apiVersion: apps/v1
-metadata:
-  name: american-flights-api
-  namespace: c4e-sandbox
-  uid: a925a7b9-ad3f-43a8-b3a7-52cb376e9143
-  resourceVersion: '235062730'
-  creationTimestamp: '2024-09-12T19:54:52Z'
-  labels:
-    app.kubernetes.io/instance: poc
-    app.kubernetes.io/managed-by: Helm
-    environment: d37ea7f5-c415-44c0-8a37-55921066d716
-    organization: 93bea448-1195-4081-8f7f-e21a7de64982
-    rtf.mulesoft.com/agentNamespace: rtf
-    rtf.mulesoft.com/disableAmLogForwarding: 'true'
-    rtf.mulesoft.com/id: e6b1e624-c649-4ed8-ba95-30102019b57f
-    rtf.mulesoft.com/status: READY
-    rtf.mulesoft.com/version: 43ac4750-4e16-4f47-aec3-f653f2ceaa6b
-    type: MuleApplication
-  annotations:
-    deployment.kubernetes.io/revision: '1'
-    meta.helm.sh/release-name: american-flights-api
-    meta.helm.sh/release-namespace: c4e-sandbox
-    rtf.mulesoft.com/desiredStatus: STARTED
-    rtf.mulesoft.com/last-publish-hash: 6742734b0bc85ed16123686243952d91
-    rtf.mulesoft.com/replicas: '1'
-    rtf.mulesoft.com/version: 43ac4750-4e16-4f47-aec3-f653f2ceaa6b
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      rtf.mulesoft.com/id: e6b1e624-c649-4ed8-ba95-30102019b57f
-  template:
-    metadata:
-      creationTimestamp: null
-      labels:
-        am-org-id: 56c14f77-79ed-4de3-8313-d542ea9f232b
-        app: american-flights-api
-        environment: d37ea7f5-c415-44c0-8a37-55921066d716
-        name: american-flights-api
-        organization: 93bea448-1195-4081-8f7f-e21a7de64982
-        pod: mule-app
-        root-org-id: 56c14f77-79ed-4de3-8313-d542ea9f232b
-        rtf.mulesoft.com/disableAmLogForwarding: 'true'
-        rtf.mulesoft.com/generation: 717007719aa1e772a7317c8728d2fc8d
-        rtf.mulesoft.com/id: e6b1e624-c649-4ed8-ba95-30102019b57f
-        type: MuleApplication
-      annotations:
-        mulesoft.com/resources: >-
-          [{"url":"https://configuration-resolver.prod.cloudhub.io/api/v1/deployments/e6b1e624-c649-4ed8-ba95-30102019b57f/assets/eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNdWxlU29mdCAtIEFNQyAtIERlcGxveWVyIiwiZ3JvdXBJZCI6IjkzYmVhNDQ4LTExOTUtNDA4MS04ZjdmLWUyMWE3ZGU2NDk4MiIsImNsYXNzaWZpZXIiOiJtdWxlLWFwcGxpY2F0aW9uIiwiYXJ0aWZhY3RJZCI6ImFtZXJpY2FuLWZsaWdodHMtYXBpIiwicGFja2FnaW5nIjoiamFyIiwiZXhjaGFuZ2VUeXBlIjoiYXBwIiwiZGVwbG95bWVudE5hbWUiOiJhbWVyaWNhbi1mbGlnaHRzLWFwaSIsInNvdXJjZSI6ImV4Y2hhbmdlIiwicmVmSWQiOiJhbWVyaWNhbi1mbGlnaHRzLWFwaSIsInZlcnNpb24iOiIxLjEuMiIsImF1ZCI6ImFlZDU0ZjBlLTdkYjktNGRkNy1hZTVkLWE0ZWUzNTFiMTc3Yi5NQy51cy1lYXN0LTEifQ.mCHaKffns2GUds5NadwSSlj1gE-m3bpQ2iaq6eIv9fg2tFjXCr8zZ3SFG7v2pqBMG0JQJNn45coAzcPNzor-EypfvxkptBKu3mya5q380XSQJAdq5v7n5K90AzLlWD_E5_p2b57oUyuCZEyPZqlw8AwiOcvKYxvQuqdB0G74FEUMHm9X6Vvw-sh1LrbqV4tfQcdz4YzvtBTj-jZvHl2vbEkw0Ypfi5MEMIHRRKt8ft2Wdjdo9mHoiVaCgMQYrR2Cl1UDoPmdOn9HBiG3y4vk2jNmG5H_2r_86UGgMZRaOtc3JBpOh1QfyUimoXam9w2KA4T6Qo-tJnaiYUXjPT_QDg","destinationFile":"/opt/mule/deployments/american-flights-api.jar"}]
-    spec:
-      volumes:
-        - name: podinfo
-          downwardAPI:
-            items:
-              - path: annotations
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: metadata.annotations
-            defaultMode: 420
-        - name: overlay
-          emptyDir: {}
-        - name: data-certs
-          secret:
-            secretName: e6b1e624-c649-4ed8-ba95-30102019b57f-0
-            defaultMode: 420
-        - name: opt-am-config
-          configMap:
-            name: e6b1e624-c649-4ed8-ba95-30102019b57f-0
-            defaultMode: 420
-        - name: opt-mule-deployments-conf
-          configMap:
-            name: e6b1e624-c649-4ed8-ba95-30102019b57f-1
-            defaultMode: 420
-        - name: tmp
-          emptyDir: {}
-        - name: mulelicense
-          secret:
-            secretName: rtf-muleruntime-license
-            items:
-              - key: '3'
-                path: muleLicenseKey.lic
-            defaultMode: 420
-      initContainers:
-        - name: init
-          image: rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-app-init:1.0.179
-          args:
-            - '--namespace'
-            - rtf
-          resources: {}
-          volumeMounts:
-            - name: podinfo
-              readOnly: true
-              mountPath: /etc/podinfo
-            - name: overlay
-              mountPath: /mnt/overlay
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
-          imagePullPolicy: IfNotPresent
-          securityContext:
-            capabilities:
-              drop:
-                - ALL
-            privileged: false
-            runAsUser: 2020
-            runAsNonRoot: true
-            readOnlyRootFilesystem: true
-            allowPrivilegeEscalation: false
-            seccompProfile:
-              type: RuntimeDefault
-      containers:
-        - name: app
-          image: >-
-            rtf-runtime-registry.kprod.msap.io/mulesoft/poseidon-runtime-4.4.0:20240821-3
-          ports:
-            - name: http
-              containerPort: 8081
-              protocol: TCP
-            - name: https
-              containerPort: 8082
-              protocol: TCP
-            - name: hazelcast
-              containerPort: 5701
-              protocol: TCP
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: american-flights-api
+    namespace: c4e-sandbox
+  spec:
+    progressDeadlineSeconds: 720
+    replicas: 1
+    revisionHistoryLimit: 1
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+        creationTimestamp: null
+      spec:
+        affinity:
+          podAntiAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                  - key: rtf.mulesoft.com/id
+                    operator: In
+                  - key: rtf.mulesoft.com/generation
+                    operator: In
+                topologyKey: kubernetes.io/hostname
+              weight: 100
+        automountServiceAccountToken: false
+        containers:
+        - env:
+          - name: APP_NAME
+            value: american-flights-api
+          - name: TARGET_ID
+            value: aed54f0e-7db9-4dd7-ae5d-a4ee351b177b
+          - name: DEPLOYMENT_ID
+            value: 0daf7cbd-c493-4215-9c57-82c8e0417842
+          - name: RTF_ID
+            value: aed54f0e-7db9-4dd7-ae5d-a4ee351b177b
+          - name: CONF_PATH
+            value: /opt/mule/deployments/conf/american-flights-api.yml
+          - name: POD_CPU_REQUEST
+            value: 20m
+          - name: POD_CPU_LIMIT
+            value: 1000m
+          - name: POD_MEM_REQUEST
+            value: 1000Mi
+          - name: POD_MEM_LIMIT
+            value: 1000Mi
+          - name: ANYPOINT_MONITORING_SCOPE
+            value: app
+          - name: NAMESPACE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: ROOT_ORG_ID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['root-org-id']
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: ORG_ID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['organization']
+          - name: ENV_ID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['environment']
+          - name: NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: MULE_SECURE_PROPERTIES
+            valueFrom:
+              secretKeyRef:
+                key: properties
+                name: secure-properties
+                optional: true
+          - name: INFLUX_PUBLISH_HEAP_METRICS_DISABLED
+            value: "true"
+          - name: USE_PROXY_PROPERTIES
+            value: "false"
+          - name: FILE_APPENDER_ENABLED
+            value: "true"
           envFrom:
-            - secretRef:
-                name: custom-properties
-                optional: true
-            - secretRef:
-                name: env-vars-e6b1e624-c649-4ed8-ba95-30102019b57f
-                optional: true
-          env:
-            - name: APP_NAME
-              value: american-flights-api
-            - name: TARGET_ID
-              value: aed54f0e-7db9-4dd7-ae5d-a4ee351b177b
-            - name: DEPLOYMENT_ID
-              value: e6b1e624-c649-4ed8-ba95-30102019b57f
-            - name: RTF_ID
-              value: aed54f0e-7db9-4dd7-ae5d-a4ee351b177b
-            - name: CONF_PATH
-              value: /opt/mule/deployments/conf/american-flights-api.yml
-            - name: POD_CPU_REQUEST
-              value: 20m
-            - name: POD_CPU_LIMIT
-              value: 1000m
-            - name: POD_MEM_REQUEST
-              value: 1000Mi
-            - name: POD_MEM_LIMIT
-              value: 1000Mi
-            - name: ANYPOINT_MONITORING_SCOPE
-              value: app
-            - name: NAMESPACE_NAME
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: metadata.namespace
-            - name: ROOT_ORG_ID
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: metadata.labels['root-org-id']
-            - name: POD_NAME
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: metadata.name
-            - name: ORG_ID
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: metadata.labels['organization']
-            - name: ENV_ID
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: metadata.labels['environment']
-            - name: NODE_NAME
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: spec.nodeName
-            - name: MULE_SECURE_PROPERTIES
-              valueFrom:
-                secretKeyRef:
-                  name: secure-properties
-                  key: properties
-                  optional: true
-            - name: INFLUX_PUBLISH_HEAP_METRICS_DISABLED
-              value: 'true'
-            - name: USE_PROXY_PROPERTIES
-              value: 'false'
-            - name: FILE_APPENDER_ENABLED
-              value: 'true'
-          resources:
-            limits:
-              cpu: '1'
-              memory: 1000Mi
-            requests:
-              cpu: 20m
-              memory: 1000Mi
-          volumeMounts:
-            - name: overlay
-              mountPath: /mnt/overlay
-            - name: opt-mule-deployments-conf
-              mountPath: /opt/mule/deployments/conf
-            - name: tmp
-              mountPath: /tmp
-            - name: mulelicense
-              readOnly: true
-              mountPath: /license
-          readinessProbe:
-            exec:
-              command:
-                - /readiness-probe.sh
-            initialDelaySeconds: 10
-            timeoutSeconds: 5
-            periodSeconds: 5
-            successThreshold: 1
-            failureThreshold: 3
+          - secretRef:
+              name: custom-properties
+              optional: true
+          image: rtf-runtime-registry.kprod.msap.io/mulesoft/poseidon-runtime-4.4.0:20240821-3
+          imagePullPolicy: IfNotPresent
           lifecycle:
             preStop:
               exec:
                 command:
-                  - sh
-                  - '-c'
-                  - sleep 5
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
-          imagePullPolicy: IfNotPresent
+                - sh
+                - -c
+                - sleep 5
+          name: app
+          ports:
+          - containerPort: 8081
+            name: http
+            protocol: TCP
+          - containerPort: 8082
+            name: https
+            protocol: TCP
+          - containerPort: 5701
+            name: hazelcast
+            protocol: TCP
+          readinessProbe:
+            exec:
+              command:
+              - /readiness-probe.sh
+            failureThreshold: 3
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 5
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1000Mi
+            requests:
+              cpu: 20m
+              memory: 1000Mi
           securityContext:
+            allowPrivilegeEscalation: false
             capabilities:
               drop:
-                - ALL
+              - ALL
             privileged: false
-            runAsUser: 2020
-            runAsGroup: 2020
             readOnlyRootFilesystem: true
-            allowPrivilegeEscalation: false
-        - name: anypoint-monitoring
-          image: >-
-            rtf-runtime-registry.kprod.msap.io/mulesoft/dias-anypoint-monitoring-sidecar:2.0.47
-          env:
-            - name: APP_NAME
-              value: american-flights-api
-            - name: TARGET_ID
-              value: aed54f0e-7db9-4dd7-ae5d-a4ee351b177b
-            - name: CLUSTER_FLAVOR
-              value: byok
-            - name: NAMESPACE_NAME
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: metadata.namespace
-            - name: ROOT_ORG_ID
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: metadata.labels['root-org-id']
-            - name: POD_NAME
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: metadata.name
-            - name: ORG_ID
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: metadata.labels['organization']
-            - name: ENV_ID
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: metadata.labels['environment']
-            - name: DEPLOYMENT_ID
-              value: e6b1e624-c649-4ed8-ba95-30102019b57f
-            - name: APP_REGION
-              value: us-east-1
-            - name: NODE_NAME
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: spec.nodeName
-            - name: LOG_LOCATION
-              value: /mnt/overlay/opt/mule/logs/_*metric.log
-            - name: DATA_PATH
-              value: /mnt/overlay/am-data
-            - name: PROXY_URL
-              valueFrom:
-                secretKeyRef:
-                  name: custom-properties
-                  key: MONITORING_PROXY
-                  optional: true
-            - name: HTTP_PROXY
-              valueFrom:
-                secretKeyRef:
-                  name: custom-properties
-                  key: HTTP_PROXY
-                  optional: true
-            - name: HTTPS_PROXY
-              valueFrom:
-                secretKeyRef:
-                  name: custom-properties
-                  key: HTTP_PROXY
-                  optional: true
-            - name: INGEST_HOST
-              value: dias-ingestor-router.us-east-1.prod.cloudhub.io:443
-            - name: MULE_BILLING_ENABLED
-              value: 'false'
-            - name: MULE_METERING_ENABLED
-              value: 'true'
-            - name: OTEL_AGENT_VERSION
-              value: 2.0.47
-            - name: OTEL_EXPORTER_OTLP_LMETRICS_ENDPOINT
-              value: https://us1.ingest.mulesoft.com/api/v2/lmetrics
-            - name: OTEL_EXPORTER_OTLP_LOGS_ENDPOINT
-              value: https://us1.ingest.mulesoft.com/api/v2/logs
-            - name: OTEL_EXPORTER_OTLP_METRICS_ENDPOINT
-              value: https://us1.ingest.mulesoft.com/api/v2/metrics
-            - name: OTEL_EXPORTER_OTLP_METRICS_INTERNAL_ENDPOINT
-              value: https://us1.ingest.mulesoft.com/api/v2/metrics
-            - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
-              value: https://us1.ingest.mulesoft.com/api/v2/traces
-            - name: RESOURCE_LIMIT_MEMORY
-              value: 150Mi
-            - name: MULE_VERSION
-              value: 4.4.0:20240821-3
+            runAsGroup: 2020
+            runAsUser: 2020
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /mnt/overlay
+            name: overlay
+          - mountPath: /opt/mule/deployments/conf
+            name: opt-mule-deployments-conf
+          - mountPath: /tmp
+            name: tmp
+          - mountPath: /license
+            name: mulelicense
+            readOnly: true
+        - env:
+          - name: APP_NAME
+            value: american-flights-api
+          - name: TARGET_ID
+            value: aed54f0e-7db9-4dd7-ae5d-a4ee351b177b
+          - name: CLUSTER_FLAVOR
+            value: byok
+          - name: NAMESPACE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: ROOT_ORG_ID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['root-org-id']
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: ORG_ID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['organization']
+          - name: ENV_ID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['environment']
+          - name: DEPLOYMENT_ID
+            value: 0daf7cbd-c493-4215-9c57-82c8e0417842
+          - name: APP_REGION
+            value: us-east-1
+          - name: NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: LOG_LOCATION
+            value: /mnt/overlay/opt/mule/logs/_*metric.log
+          - name: DATA_PATH
+            value: /mnt/overlay/am-data
+          - name: PROXY_URL
+            valueFrom:
+              secretKeyRef:
+                key: MONITORING_PROXY
+                name: custom-properties
+                optional: true
+          - name: HTTP_PROXY
+            valueFrom:
+              secretKeyRef:
+                key: HTTP_PROXY
+                name: custom-properties
+                optional: true
+          - name: HTTPS_PROXY
+            valueFrom:
+              secretKeyRef:
+                key: HTTP_PROXY
+                name: custom-properties
+                optional: true
+          - name: INGEST_HOST
+            value: dias-ingestor-router.us-east-1.prod.cloudhub.io:443
+          - name: MULE_BILLING_ENABLED
+            value: "false"
+          - name: MULE_METERING_ENABLED
+            value: "true"
+          - name: OTEL_AGENT_VERSION
+            value: 2.0.47
+          - name: OTEL_EXPORTER_OTLP_LMETRICS_ENDPOINT
+            value: https://us1.ingest.mulesoft.com/api/v2/lmetrics
+          - name: OTEL_EXPORTER_OTLP_LOGS_ENDPOINT
+            value: https://us1.ingest.mulesoft.com/api/v2/logs
+          - name: OTEL_EXPORTER_OTLP_METRICS_ENDPOINT
+            value: https://us1.ingest.mulesoft.com/api/v2/metrics
+          - name: OTEL_EXPORTER_OTLP_METRICS_INTERNAL_ENDPOINT
+            value: https://us1.ingest.mulesoft.com/api/v2/metrics
+          - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
+            value: https://us1.ingest.mulesoft.com/api/v2/traces
+          - name: RESOURCE_LIMIT_MEMORY
+            value: 150Mi
+          - name: MULE_VERSION
+            value: 4.4.0:20240821-3
+          image: rtf-runtime-registry.kprod.msap.io/mulesoft/dias-anypoint-monitoring-sidecar:2.0.47
+          imagePullPolicy: IfNotPresent
+          name: anypoint-monitoring
           resources:
             limits:
               cpu: 300m
@@ -332,70 +252,97 @@ spec:
             requests:
               cpu: 50m
               memory: 150Mi
-          volumeMounts:
-            - name: overlay
-              mountPath: /mnt/overlay
-            - name: data-certs
-              mountPath: /data/certs
-            - name: opt-am-config
-              mountPath: /opt/am/config
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: FallbackToLogsOnError
-          imagePullPolicy: IfNotPresent
           securityContext:
+            allowPrivilegeEscalation: false
             capabilities:
               drop:
-                - ALL
-            runAsUser: 2001
-            runAsGroup: 2000
+              - ALL
             readOnlyRootFilesystem: true
-            allowPrivilegeEscalation: false
-      restartPolicy: Always
-      terminationGracePeriodSeconds: 300
-      dnsPolicy: ClusterFirst
-      nodeSelector:
-        app: mule-app
-        kubernetes.io/arch: amd64
-        kubernetes.io/os: linux
-      serviceAccountName: american-flights-api
-      serviceAccount: american-flights-api
-      automountServiceAccountToken: false
-      securityContext:
-        runAsNonRoot: true
-        seccompProfile:
-          type: RuntimeDefault
-      imagePullSecrets:
+            runAsGroup: 2000
+            runAsUser: 2001
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: FallbackToLogsOnError
+          volumeMounts:
+          - mountPath: /mnt/overlay
+            name: overlay
+          - mountPath: /data/certs
+            name: data-certs
+          - mountPath: /opt/am/config
+            name: opt-am-config
+        dnsPolicy: ClusterFirst
+        enableServiceLinks: false
+        imagePullSecrets:
         - name: rtf-pull-secret
-      affinity:
-        podAntiAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 100
-              podAffinityTerm:
-                labelSelector:
-                  matchExpressions:
-                    - key: rtf.mulesoft.com/id
-                      operator: In
-                      values:
-                        - e6b1e624-c649-4ed8-ba95-30102019b57f
-                    - key: rtf.mulesoft.com/generation
-                      operator: In
-                      values:
-                        - 717007719aa1e772a7317c8728d2fc8d
-                topologyKey: kubernetes.io/hostname
-      schedulerName: default-scheduler
-      enableServiceLinks: false
-      topologySpreadConstraints:
-        - maxSkew: 1
+        initContainers:
+        - args:
+          - --namespace
+          - rtf
+          image: rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-app-init:1.0.179
+          imagePullPolicy: IfNotPresent
+          name: init
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 2020
+            seccompProfile:
+              type: RuntimeDefault
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/podinfo
+            name: podinfo
+            readOnly: true
+          - mountPath: /mnt/overlay
+            name: overlay
+        nodeSelector:
+          app: mule-app
+          kubernetes.io/arch: amd64
+          kubernetes.io/os: linux
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+        serviceAccount: american-flights-api
+        serviceAccountName: american-flights-api
+        terminationGracePeriodSeconds: 300
+        topologySpreadConstraints:
+          maxSkew: 1
           topologyKey: topology.kubernetes.io/zone
           whenUnsatisfiable: ScheduleAnyway
-          labelSelector:
-            matchLabels:
-              rtf.mulesoft.com/generation: 717007719aa1e772a7317c8728d2fc8d
-              rtf.mulesoft.com/id: e6b1e624-c649-4ed8-ba95-30102019b57f
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 0
-      maxSurge: 1
-  revisionHistoryLimit: 1
-  progressDeadlineSeconds: 720
+        volumes:
+        - downwardAPI:
+            defaultMode: 420
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.annotations
+              path: annotations
+          name: podinfo
+        - emptyDir: {}
+          name: overlay
+        - name: data-certs
+          secret:
+            defaultMode: 420
+        - configMap:
+            defaultMode: 420
+          name: opt-am-config
+        - configMap:
+            defaultMode: 420
+          name: opt-mule-deployments-conf
+        - emptyDir: {}
+          name: tmp
+        - name: mulelicense
+          secret:
+            defaultMode: 420
+            items:
+            - key: "3"
+              path: muleLicenseKey.lic
+            secretName: rtf-muleruntime-license
