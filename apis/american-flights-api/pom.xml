@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>93bea448-1195-4081-8f7f-e21a7de64982</groupId>
     <artifactId>american-flights-api</artifactId>
-    <version>1.1.8</version>
+    <version>1.1.9</version>
     <packaging>mule-application</packaging>
     <name>american-flights-api</name>
     <properties>
@@ -42,10 +42,10 @@
 				  <resources>
 				    <cpu>
 				      <reserved>20m</reserved>
-				      <limit>1050m</limit>
+				      <limit>1100m</limit>
 				    </cpu>
 				    <memory>
-				      <reserved>1050Mi</reserved>
+				      <reserved>1100Mi</reserved>
 				    </memory>
 				  </resources>
 				</deploymentSettings>
