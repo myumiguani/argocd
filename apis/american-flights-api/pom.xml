@@ -42,10 +42,10 @@
 				  <resources>
 				    <cpu>
 				      <reserved>20m</reserved>
-				      <limit>1000m</limit>
+				      <limit>1050m</limit>
 				    </cpu>
 				    <memory>
-				      <reserved>1000Mi</reserved>
+				      <reserved>1050Mi</reserved>
 				    </memory>
 				  </resources>
 				</deploymentSettings>
