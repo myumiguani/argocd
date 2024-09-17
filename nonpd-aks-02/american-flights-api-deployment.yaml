@@ -9,7 +9,7 @@ spec:
   revisionHistoryLimit: 1
   selector:
     matchLabels:
-      rtf.mulesoft.com/id: f3262774-7be8-47bd-a1b6-ca9eda3d8925
+      rtf.mulesoft.com/id: 1f3aebd8-1832-4143-80ea-6fbeb1393de9
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -27,8 +27,8 @@ spec:
         pod: mule-app
         root-org-id: 56c14f77-79ed-4de3-8313-d542ea9f232b
         rtf.mulesoft.com/disableAmLogForwarding: "true"
-        rtf.mulesoft.com/generation: 717007719aa1e772a7317c8728d2fc8d
-        rtf.mulesoft.com/id: f3262774-7be8-47bd-a1b6-ca9eda3d8925
+        rtf.mulesoft.com/generation: 1d35e32847471222f8ce3cb806f110a6
+        rtf.mulesoft.com/id: 1f3aebd8-1832-4143-80ea-6fbeb1393de9
         type: MuleApplication
     spec:
       affinity:
@@ -40,11 +40,11 @@ spec:
                 - key: rtf.mulesoft.com/id
                   operator: In
                   values:
-                  - f3262774-7be8-47bd-a1b6-ca9eda3d8925
+                  - 1f3aebd8-1832-4143-80ea-6fbeb1393de9
                 - key: rtf.mulesoft.com/generation
                   operator: In
                   values:
-                  - 717007719aa1e772a7317c8728d2fc8d
+                  - 1d35e32847471222f8ce3cb806f110a6
               topologyKey: kubernetes.io/hostname
             weight: 100
       automountServiceAccountToken: false
@@ -55,7 +55,7 @@ spec:
         - name: TARGET_ID
           value: aed54f0e-7db9-4dd7-ae5d-a4ee351b177b
         - name: DEPLOYMENT_ID
-          value: f3262774-7be8-47bd-a1b6-ca9eda3d8925
+          value: 1f3aebd8-1832-4143-80ea-6fbeb1393de9
         - name: RTF_ID
           value: aed54f0e-7db9-4dd7-ae5d-a4ee351b177b
         - name: CONF_PATH
@@ -63,11 +63,11 @@ spec:
         - name: POD_CPU_REQUEST
           value: 20m
         - name: POD_CPU_LIMIT
-          value: 1000m
+          value: 1050m
         - name: POD_MEM_REQUEST
-          value: 1000Mi
+          value: 1050Mi
         - name: POD_MEM_LIMIT
-          value: 1000Mi
+          value: 1050Mi
         - name: ANYPOINT_MONITORING_SCOPE
           value: app
         - name: NAMESPACE_NAME
@@ -117,7 +117,7 @@ spec:
             name: custom-properties
             optional: true
         - secretRef:
-            name: env-vars-f3262774-7be8-47bd-a1b6-ca9eda3d8925
+            name: env-vars-1f3aebd8-1832-4143-80ea-6fbeb1393de9
             optional: true
         image: rtf-runtime-registry.kprod.msap.io/mulesoft/poseidon-runtime-4.4.0:20240821-3
         imagePullPolicy: IfNotPresent
@@ -150,11 +150,11 @@ spec:
           timeoutSeconds: 5
         resources:
           limits:
-            cpu: "1"
-            memory: 1000Mi
+            cpu: 1050m
+            memory: 1050Mi
           requests:
             cpu: 20m
-            memory: 1000Mi
+            memory: 1050Mi
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
@@ -209,7 +209,7 @@ spec:
               apiVersion: v1
               fieldPath: metadata.labels['environment']
         - name: DEPLOYMENT_ID
-          value: f3262774-7be8-47bd-a1b6-ca9eda3d8925
+          value: 1f3aebd8-1832-4143-80ea-6fbeb1393de9
         - name: APP_REGION
           value: us-east-1
         - name: NODE_NAME
@@ -266,7 +266,7 @@ spec:
         name: anypoint-monitoring
         resources:
           limits:
-            cpu: 300m
+            cpu: 315m
             memory: 150Mi
           requests:
             cpu: 50m
@@ -335,8 +335,8 @@ spec:
       topologySpreadConstraints:
       - labelSelector:
           matchLabels:
-            rtf.mulesoft.com/generation: 717007719aa1e772a7317c8728d2fc8d
-            rtf.mulesoft.com/id: f3262774-7be8-47bd-a1b6-ca9eda3d8925
+            rtf.mulesoft.com/generation: 1d35e32847471222f8ce3cb806f110a6
+            rtf.mulesoft.com/id: 1f3aebd8-1832-4143-80ea-6fbeb1393de9
         maxSkew: 1
         topologyKey: topology.kubernetes.io/zone
         whenUnsatisfiable: ScheduleAnyway
@@ -354,14 +354,14 @@ spec:
       - name: data-certs
         secret:
           defaultMode: 420
-          secretName: f3262774-7be8-47bd-a1b6-ca9eda3d8925-0
+          secretName: 1f3aebd8-1832-4143-80ea-6fbeb1393de9-0
       - configMap:
           defaultMode: 420
-          name: f3262774-7be8-47bd-a1b6-ca9eda3d8925-0
+          name: 1f3aebd8-1832-4143-80ea-6fbeb1393de9-0
         name: opt-am-config
       - configMap:
           defaultMode: 420
-          name: f3262774-7be8-47bd-a1b6-ca9eda3d8925-1
+          name: 1f3aebd8-1832-4143-80ea-6fbeb1393de9-1
         name: opt-mule-deployments-conf
       - emptyDir: {}
         name: tmp
