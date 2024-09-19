@@ -1,7 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
 name: Updating Memory and CPU in Resource-Cache.yaml
-env: ds="ds"
 # Controls when the workflow will run
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -20,14 +19,14 @@ jobs:
         uses: Azure/login@v2.1.0
         with:
           # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
-          creds: # optional
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
           # ClientId of the Azure Service principal created.
           
       - name: Azure CLI Action
         uses: Azure/cli@v2.1.0
         with:
           # Specify the script here
-          inlineScript: kubectl patch deployment resource-cache -n rtf --patch-file resource-cache-patch-file.yaml
-          # Azure CLI version to be used to execute the script. If not provided, latest version is used
-          azcliversion: # optional, default is agentazcliversion
-          
+          inlineScript: | 
+            kubectl config use-context nonpd-aks-02
+            kubectl patch deployment resource-cache -n rtf --patch-file resource-cache-patch-file.yaml
+            
