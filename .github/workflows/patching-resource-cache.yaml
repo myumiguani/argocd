@@ -27,7 +27,7 @@ jobs:
         uses: Azure/cli@v2.1.0
         with:
           # Specify the script here
-          inlineScript: 
+          inlineScript: kubectl patch deployment resource-cache -n rtf --patch-file resource-cache-patch-file.yaml
           # Azure CLI version to be used to execute the script. If not provided, latest version is used
           azcliversion: # optional, default is agentazcliversion
           
