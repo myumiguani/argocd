@@ -1,20 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: american-flights-api
+  name: poc
+  namespace: c4e-sandbox 
 spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
   generators:
   - list:
-      items:
+      elements:
       - cluster: nonpd-aks-02
         url: https://227925-dev-eus2-863ksonj.privatelink.eastus2.azmk8s.io:443
-#      - cluster: prepd-aks-01
-#        url: https://2.4.6.8
-#      - cluster: prod-aks-01
-#        url: https://9.8.7.6
+      - cluster: prepd-aks-01
+        url: https://227925-dev-eus2-863ksonj.privatelink.eastus2.azmk8s.io:443
   template:
     metadata:
-      name: '{{cluster}}-american-flights-api'
+      name: '${{.cluster}}-american'
     spec:
       project: default
       source:
@@ -22,5 +23,5 @@ spec:
         targetRevision: HEAD
         path: {{cluster}}
       destination:
-        server: '{{url}}'
+        server: '${{url}}'
         namespace: c4e-sandbox
