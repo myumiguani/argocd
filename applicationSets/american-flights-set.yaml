@@ -11,11 +11,9 @@ spec:
       elements:
       - cluster: nonpd-aks-02
         url: https://227925-dev-eus2-863ksonj.privatelink.eastus2.azmk8s.io:443
-      - cluster: prepd-aks-01
-        url: https://227925-dev-eus2-863ksonj.privatelink.eastus2.azmk8s.io:443
   template:
     metadata:
-      name: '${{.cluster}}-american'
+      name: '{{cluster}}-american'
     spec:
       project: default
       source:
@@ -23,5 +21,5 @@ spec:
         targetRevision: HEAD
         path: {{cluster}}
       destination:
-        server: '${{url}}'
+        server: '{{url}}'
         namespace: c4e-sandbox
