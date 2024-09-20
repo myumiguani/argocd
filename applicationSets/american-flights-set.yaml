@@ -15,7 +15,7 @@ spec:
     metadata:
       name: '{{.cluster}}-american'
     spec:
-      project: default
+      project: 'default'
       source:
         repoURL: git@github.com:myumiguani/private_argocd.git
         targetRevision: HEAD
