@@ -10,8 +10,10 @@ spec:
       elements:
       - cluster: nonpd-aks-02
         url: https://227925-dev-eus2-863ksonj.privatelink.eastus2.azmk8s.io:443
+        namespace : c4e-sandbox
       - cluster: prepd-aks-01
         url: https://227925-uat-eus2-5exwcfvg.privatelink.eastus2.azmk8s.io:443
+        namespace : rtf2-health
   template:
     metadata:
       name: american
@@ -23,4 +25,4 @@ spec:
         path: {{.cluster}}
       destination:
         server: '{{.url}}'
-        namespace: c4e-sandbox
+        namespace: {{.namespace}}
