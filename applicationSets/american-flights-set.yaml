@@ -22,7 +22,7 @@ spec:
       source:
         repoURL: 'git@github.com:myumiguani/private_argocd.git'
         targetRevision: HEAD
-        path: {{.cluster}}
+        path: '{{.cluster}}'
       destination:
         server: '{{.url}}'
-        namespace: ${{.namespace}}
+        namespace: '{{.namespace}}'
