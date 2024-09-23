@@ -25,4 +25,4 @@ spec:
         path: {{.cluster}}
       destination:
         server: '{{.url}}'
-        namespace: {{.namespace}}
+        namespace: ${{.namespace}}
