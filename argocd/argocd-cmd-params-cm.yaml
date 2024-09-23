@@ -1,0 +1,6 @@
+kind: ConfigMap
+metadata:
+  name: argocd-cmd-params-cm
+  namespace: argocd
+data:
+  application.namespaces: rtf2-health, c4e-sandbox
