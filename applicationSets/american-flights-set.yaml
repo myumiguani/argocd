@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: poc
-  namespace: c4e-sandbox 
+  namespace: argocd 
 spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
