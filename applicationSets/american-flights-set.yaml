@@ -18,7 +18,7 @@ spec:
       source:
         repoURL: 'git@github.com:myumiguani/private_argocd.git'
         targetRevision: HEAD
-        path: {{cluster}}
+        path: {{.cluster}}
       destination:
-        server: '{{url}}'
+        server: '{{.url}}'
         namespace: c4e-sandbox
