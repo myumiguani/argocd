@@ -9,7 +9,7 @@ spec:
   - list:
       elements:
       - cluster: nonpd-aks-02
-      - url: https://227925-dev-eus2-863ksonj.privatelink.eastus2.azmk8s.io:443
+        url: https://227925-dev-eus2-863ksonj.privatelink.eastus2.azmk8s.io:443
   template:
     metadata:
       name: american
