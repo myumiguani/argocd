@@ -22,7 +22,7 @@ spec:
       source:
         repoURL: 'git@github.com:myumiguani/private_argocd.git'
         targetRevision: HEAD
-        path: '{{.cluster}}'
+        path: nonpd-aks-02
       destination:
-        server: '{{.url}}'
-        namespace: '{{.namespace}}'
+        server: 'https://227925-dev-eus2-863ksonj.privatelink.eastus2.azmk8s.io:443'
+        namespace: c4e-sandbox
