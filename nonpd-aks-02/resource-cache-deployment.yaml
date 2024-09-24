@@ -1,0 +1,131 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resource-cache
+  namespace: rtf
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: resource-cache
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        checksum/config: 5c9997dd658f0d51a56f62a7a73e944269658d888f94b283751b9f09b0d76549
+      creationTimestamp: null
+      labels:
+        app: resource-cache
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - image: rtf-runtime-registry.kprod.msap.io/mulesoft/base-image-nginx-1.21.6:1.2.152
+        imagePullPolicy: IfNotPresent
+        name: nginx
+        ports:
+        - containerPort: 8010
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 500m
+            memory: 250Mi
+          requests:
+            cpu: 100m
+            memory: 50Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /etc/nginx
+          name: nginx-config
+        - mountPath: /tmp/nginx
+          name: nginx-tmp
+      - args:
+        - /app
+        env:
+        - name: HTTP_PROXY
+          valueFrom:
+            secretKeyRef:
+              key: HTTP_PROXY
+              name: custom-properties
+              optional: true
+        - name: HTTPS_PROXY
+          valueFrom:
+            secretKeyRef:
+              key: HTTP_PROXY
+              name: custom-properties
+              optional: true
+        - name: NO_PROXY
+          valueFrom:
+            secretKeyRef:
+              key: HTTP_NO_PROXY
+              name: custom-properties
+              optional: true
+        - name: OVERRIDE_HOST
+          valueFrom:
+            secretKeyRef:
+              key: CONFIGRESOLVER_HOST
+              name: generated-properties
+              optional: true
+        image: rtf-runtime-registry.kprod.msap.io/mulesoft/rtf-resource-fetcher:1.0.183
+        imagePullPolicy: IfNotPresent
+        name: fetcher
+        ports:
+        - containerPort: 8011
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 100m
+            memory: 200Mi
+          requests:
+            cpu: 50m
+            memory: 50Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+          runAsGroup: 2000
+          runAsUser: 2020
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /opt/app/ssl
+          name: agent-keystore-volume
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        kubernetes.io/arch: amd64
+        kubernetes.io/os: linux
+      priorityClassName: rtf-components-high-priority
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      serviceAccount: resource-cache
+      serviceAccountName: resource-cache
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: resource-cache-config
+        name: nginx-config
+      - emptyDir: {}
+        name: nginx-tmp
+      - name: agent-keystore-volume
+        secret:
+          defaultMode: 420
+          secretName: agent-keystore
