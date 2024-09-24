@@ -1,0 +1,23 @@
+pec:
+
+  template:
+
+    spec:
+
+      containers:
+
+      - name: fetcher
+
+        resources:
+
+          limits:
+
+            cpu: 100m
+
+            memory: 500Mi
+
+          requests:
+
+            cpu: 50m
+
+            memory: 50Mi
