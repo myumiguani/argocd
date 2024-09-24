@@ -5,7 +5,7 @@ metadata:
   namespace: c4e-sandbox
 spec:
   progressDeadlineSeconds: 720
-  replicas: 1
+  replicas: 2
   revisionHistoryLimit: 1
   selector:
     matchLabels:
