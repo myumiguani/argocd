@@ -11,5 +11,5 @@ patches:
       name: resource-cache
     patch: |-
       - op: replace
-          path: /spec/template/spec/containers/0/name/resources/limits/cpu
+          path: /spec/template/spec/containers/resources/limits/cpu
           value: 100mi
