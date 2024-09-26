@@ -4,7 +4,7 @@ metadata:
   name: nonpd-aks-02-resource-cache-patch
 namespace: test1
 resources:
-  - git@github.com:myumiguani/private_argocd.git
+  - resource-cache-deployment.yaml
 patches:
   - target:
       kind: Deployment
