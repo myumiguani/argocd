@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nonpd-aks-02
+  namespace: c4e-sandbox
+spec:
+  project: default
+  source:
+    repoURL: 'git@github.com:myumiguani/private_argocd.git'
+    path: nonpd-aks-02
+    targetRevision: HEAD
+    kustomize:
+      patches:
+        - target:
+            kind: Deployment
+            name: resource-cache
+          patch: |-
+            - op: replace
+              path: /spec/template/spec/containers/resources/limits/cpu
+              action: 100mi
+  destination:
+    server: 'https://227925-dev-eus2-863ksonj.privatelink.eastus2.azmk8s.io:443'
+    namespace: c4e-sandbox
