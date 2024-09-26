@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
   name: nonpd-aks-02-resource-cache-patch
-namespace: c4e-sandbox
+namespace: rtf
 resources:
   - resource-cache-deployment.yaml
 patches:
