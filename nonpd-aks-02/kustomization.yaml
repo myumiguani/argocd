@@ -9,7 +9,4 @@ patches:
   - target:
       kind: Deployment
       name: resource-cache
-    patch: |-
-      - op: replace
-          path: /spec/template/spec/containers/0/resources/limits/cpu
-          value: 100mi
+    path: resource-cache-patch.yaml
