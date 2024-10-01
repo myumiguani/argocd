@@ -21,15 +21,13 @@ jobs:
           # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           # ClientId of the Azure Service principal created.
-          
-      - name: Code check
-        uses: actions/checkout@v4
-        
-      - name: Azure CLI Action    
-        # Specify the script here
-        run: | 
-           az aks command invoke --name nonpd-aks-02 --resource-group 227925-dev-eus2-nonpd-rg --command "kubectl config get-contexts"
+    
        # kubectl config get-contexts
        # kubectl config use-context nonpd-aks-02
        # kubectl patch deployment resource-cache -n rtf --patch-file resource-cache-patch-file.yaml
             
+      - name: Azure CLI script
+        uses: azure/cli@v2
+        with:
+          inlineScript: |
+            az aks command invoke --name nonpd-aks-02 --resource-group 227925-dev-eus2-nonpd-rg --command "kubectl config get-contexts"
