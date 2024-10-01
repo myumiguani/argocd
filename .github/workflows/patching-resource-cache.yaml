@@ -23,10 +23,10 @@ jobs:
           # ClientId of the Azure Service principal created.
           
       - name: Azure CLI Action
-        uses: Azure/cli@v2.1.0
+        uses: actions/checkout@v4
         with:
           # Specify the script here
-          inlineScript: | 
+          run: | 
             kubectl config use-context nonpd-aks-02
-          # kubectl patch deployment resource-cache -n rtf --patch-file resource-cache-patch-file.yaml
+            kubectl patch deployment resource-cache -n rtf --patch-file resource-cache-patch-file.yaml
             
