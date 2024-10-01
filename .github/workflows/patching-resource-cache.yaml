@@ -28,7 +28,8 @@ jobs:
       - name: Azure CLI Action    
         # Specify the script here
         run: | 
-           kubectl config get-contexts
-           kubectl config use-context nonpd-aks-02
-           kubectl patch deployment resource-cache -n rtf --patch-file resource-cache-patch-file.yaml
+           az aks command invoke --name nonpd-aks-02 --resource-group 227925-dev-eus2-nonpd-rg --command "kubectl config get-contexts"
+       # kubectl config get-contexts
+       # kubectl config use-context nonpd-aks-02
+       # kubectl patch deployment resource-cache -n rtf --patch-file resource-cache-patch-file.yaml
             
