@@ -28,5 +28,5 @@ jobs:
           # Specify the script here
           inlineScript: | 
             kubectl config use-context nonpd-aks-02
-            kubectl patch deployment resource-cache -n rtf --patch-file resource-cache-patch-file.yaml
+          # kubectl patch deployment resource-cache -n rtf --patch-file resource-cache-patch-file.yaml
             
