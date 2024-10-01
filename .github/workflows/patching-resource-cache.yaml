@@ -30,4 +30,4 @@ jobs:
         uses: azure/cli@v2
         with:
           inlineScript: |
-            az aks command invoke --name nonpd-aks-02 --resource-group 227925-dev-eus2-nonpd-rg --command "kubectl config get-contexts"
+            az aks command invoke --name nonpd-aks-02 --resource-group 227925-dev-eus2-nonpd-rg --command "kubectl get pods -n c4e-sandbox"
