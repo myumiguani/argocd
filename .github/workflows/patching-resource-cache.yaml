@@ -30,4 +30,6 @@ jobs:
         uses: azure/cli@v2
         with:
           inlineScript: |
-            az aks command invoke --name nonpd-aks-02 --resource-group 227925-dev-eus2-nonpd-rg --command "kubectl get pods -n c4e-sandbox"
+            az aks command invoke --name nonpd-aks-02 --resource-group 227925-dev-eus2-nonpd-rg --command "kubectl config use-context nonpd-aks-02"
+            az aks command invoke --name nonpd-aks-02 --resource-group 227925-dev-eus2-nonpd-rg --command "kubectl patch deployment resource-cache -n rtf --patch-file resource-cache-patch-file.yaml"
+       
