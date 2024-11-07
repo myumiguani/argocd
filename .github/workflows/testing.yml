@@ -24,10 +24,15 @@ jobs:
           yes | sudo apt-get install xmlstarlet
           apiName="american-flights-api"
           cd additional-files
+          cat tgesting.xml
+          echo "--------------------------------------"
+          xmlstarlet unesc < testing.xml
+          cat testing.xml
+          
           var=$(xmlstarlet select --omit-decl -t --copy-of '//plugin' rtf-dependencies.xml | xmlstarlet unescape)
           echo $var
           xmlstarlet ed -s '//plugins' --type elem -n 'plugin' -v "$var" testing.xml > output.xml
           echo "printing output"
           cat output.xml
-          xmlstarlet select -t --copy-of '//plugin' pom-rtf-dependencies.xml > output2.xml
+          xmlstarlet select -t --copy-of '//plugin' rtf-dependencies.xml > output2.xml
           cat output2.xml
