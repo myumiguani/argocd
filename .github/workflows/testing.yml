@@ -24,7 +24,7 @@ jobs:
           yes | sudo apt-get install xmlstarlet
           apiName="american-flights-api"
           cd additional-files
-          cat tgesting.xml
+          cat testing.xml
           echo "--------------------------------------"
           xmlstarlet unesc < testing.xml
           cat testing.xml
