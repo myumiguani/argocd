@@ -1,33 +1,17 @@
 <project>
-
-  <modelVersion>4.0.0</modelVersion>
-
-  <groupId>93bea448-1195-4081-8f7f-e21a7de64982</groupId>
-
-  <artifactId>american-flights-api</artifactId>
-
-  <version>1.3.7</version>
-
-  <packaging>mule-application</packaging>
-
-  <name>american-flights-api</name>
-
-  <build>
-
-    <plugins>
-
-      <plugin>
-
-        <groupId>org.apache.maven.plugins</groupId>
-
-        <artifactId>maven-clean-plugin</artifactId>
-
-        <version>3.4.0</version>
-
-      </plugin>
-
-    </plugins>
-
-  </build>
-
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>93bea448-1195-4081-8f7f-e21a7de64982</groupId>
+	<artifactId>american-flights-api</artifactId>
+	<version>1.3.7</version>
+	<packaging>mule-application</packaging>
+	<name>american-flights-api</name>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.4.0</version>
+			</plugin>
+		</plugins>
+	</build>
 </project>
