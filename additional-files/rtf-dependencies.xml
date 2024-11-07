@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>93bea448-1195-4081-8f7f-e21a7de64982</groupId>
+	<artifactId>american-flights-api</artifactId>
+	<version>1.3.7</version>
+	<packaging>mule-application</packaging>
+	<name>american-flights-api</name>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>3.8.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<runtimeFabricDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>4.4.0</muleVersion>
+						<connectedAppClientId>41b9450c63ee4d7996be1f5f1bde72a4</connectedAppClientId>
+						<connectedAppClientSecret>80b9C96173124E38BDd787834c8aFc8F</connectedAppClientSecret>
+						<connectedAppGrantType>client_credentials</connectedAppGrantType>
+						<!--                                         <username>mikeyumi</username><password>@@@@Warcarft1234</password> -->
+						<applicationName>american-flights-api</applicationName>
+						<target>aks-nonprod-trusted</target>
+						<environment>Sandbox</environment>
+						<businessGroupId>93bea448-1195-4081-8f7f-e21a7de64982</businessGroupId>
+						<provider>MC</provider>
+						<replicas>1</replicas>
+						<deploymentSettings>
+							<resources>
+								<cpu>
+									<reserved>20m</reserved>
+									<limit>1100m</limit>
+								</cpu>
+								<memory>
+									<reserved>1100Mi</reserved>
+								</memory>
+							</resources>
+						</deploymentSettings>
+					</runtimeFabricDeployment>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
