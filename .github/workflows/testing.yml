@@ -12,8 +12,7 @@ jobs:
   build:
     # The type of runner that the job will run on
 
-    runs-on:
-      group: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -21,12 +20,11 @@ jobs:
          fetch-depth: 2
 
       - name: updating file
-
         run: |
           yes | sudo apt-get install xmlstarlet
           apiName="american-flights-api"
-          cd additional-resources
-          var=$(xmlstarlet select --omit-decl -t --copy-of '//plugin' pom-rtf-dependencies.xml | xmlstarlet unescape)
+          cd additional-files
+          var=$(xmlstarlet select --omit-decl -t --copy-of '//plugin' rtf-dependencies.xml | xmlstarlet unescape)
           echo $var
           xmlstarlet ed -s '//plugins' --type elem -n 'plugin' -v "$var" testing.xml > output.xml
           echo "printing output"
