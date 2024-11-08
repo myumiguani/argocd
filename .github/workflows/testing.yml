@@ -26,10 +26,10 @@ jobs:
           cd additional-files
           
           echo "--------------------------------------"
-          var=$(xmlstarlet select --omit-decl -t --copy-of '//plugin' rtf-dependencies.xml | xmlstarlet unescape)
+          var=$(xmlstarlet select --omit-decl -t --copy-of '//plugin' rtf-dependencies.xml)
           echo $var
-          xmlstarlet ed -s '//plugins' --type elem -n 'plugin' -v "$var" testing.xml > output.xml
+          xmlstarlet ed -s '//plugins' --type elem -n 'plugin' -v "$(xmlstarlet select --omit-decl -t --copy-of '//plugin' rtf-dependencies.xml)" testing.xml | xmlstarlet unescape> output.xml
           echo "printing output"
-          cat output.xml | xmlstarlet unescape
+          cat output.xml
           xmlstarlet select -t --copy-of '//plugin' rtf-dependencies.xml > output2.xml
           cat output2.xml
