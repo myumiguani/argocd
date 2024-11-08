@@ -26,8 +26,8 @@ jobs:
           cd additional-files
           cat testing.xml
           echo "--------------------------------------"
-          xmlstarlet unesc < testing.xml
-          cat testing.xml
+          cat xmlstarlet unesc < testing.xml
+          
           
           var=$(xmlstarlet select --omit-decl -t --copy-of '//plugin' rtf-dependencies.xml | xmlstarlet unescape)
           echo $var
